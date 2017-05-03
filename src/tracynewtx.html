@@ -1,0 +1,239 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://unpkg.com/vue"></script>
+ </head>
+
+ <body>
+  <h1>New Transaction</h1>
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+
+  <div id="app-3">
+    <p v-if="seen">Now you see me</p>
+  </div>  
+
+  <div id="app-4">
+    <button v-for="product in products">
+      {{ product.text }}
+    </button>
+  </div>
+  <div id="items">
+
+  </div>
+  <button>
+    Done
+  </button>
+  <button>
+    New Item
+  </button>
+
+  <script type="text/javascript" charset="utf-8">
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue.js!'
+      }
+    })
+
+    var app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message: 'You loaded this page on ' + new Date()
+      }
+    })
+
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        seen: true
+      }
+    })
+
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        products: [
+          { text: 'Peppermills', product: 'peppermills' },
+          { text: 'Pens', product: 'pens' },
+          { text: 'Pizza Cutters', product: 'pizzacutters' },
+          { text: 'Ice Cream Scoops', product: 'icecreamscoops' },
+          { text: 'Seam Rippers', product: 'seamrippers' },
+          { text: 'Corkscrews', product: 'corkscrews' },
+          { text: 'Steampunk Lamps', product: 'steampunklamps' },
+          { text: 'Maps', product: 'maps' },
+          { text: 'Clocks', product: 'clocks' },
+          { text: 'Spirtles', product: 'spirtles' },
+          { text: 'Crib boards', product: 'cribboards' },
+          { text: 'Muddlers', product: 'muddlers' },
+          { text: 'Rolling Pins', product: 'rollingpins' },
+          { text: 'Shaving Kits', product: 'shavingkits' },
+          { text: 'Coffee Grinders', product: 'coffeegrinders' }
+        ],
+        pens: [
+          { text: 'Bolt Action' },
+          { text: 'Lever Action' },
+          { text: 'Shotgun Rollerball' },
+          { text: '30 Cal' },
+          { text: '50 Cal Flip' },
+          { text: 'Steampunk' },
+          { text: 'Flyfish' },
+          { text: 'Motorcycle' },
+          { text: 'Celtic Rollerball' },
+          { text: '30-06' },
+          { text: 'Crystal' },
+          { text: 'Tech' },
+          { text: 'Stylus' },
+          { text: 'Gear Shift' },
+          { text: 'Dragon' }
+        ],
+        peppermills: [
+          { text: 'Green', category: 'exotic' },
+          { text: 'Red', category: 'exotic' },
+          { text: 'Blue', category: 'exotic' },
+          { text: 'Spalted Maple', category: 'exotic' },
+          { text: 'Spalted Elm', category: 'exotic' },
+          { text: 'Bubinga', category: 'exotic' },
+          { text: 'Cherry', category: 'exotic' },
+          { text: 'Indian Rosewood', category: 'exotic' },
+          { text: 'Burmese Rosewood', category: 'exotic' },
+          { text: 'Padauk', category: 'exotic' },
+          { text: 'Walnut', category: 'exotic' },
+          { text: 'Black and White Mahogany', category: 'premium' },
+          { text: 'Elm', category: 'domestic' },
+          { text: 'Maple', category: 'domestic' },
+          { text: 'Catalpa', category: 'domestic' },
+          { text: 'Birch', category: 'domestic' },
+          { text: 'Cedar', category: 'domestic' },
+          { text: 'Burnt Elm', category: 'domestic' },
+          { text: 'Burnt Maple', category: 'domestic' },
+          { text: 'Burnt Catalpa', category: 'domestic' },
+          { text: 'Burnt Birch', category: 'domestic' },
+          { text: 'Burnt Cedar', category: 'domestic' }
+        ],
+        pizzacutters: [
+          { text: 'Green', category: 'pizza' },
+          { text: 'Red', category: 'pizza' },
+          { text: 'Blue', category: 'pizza' },
+          { text: 'Spalted Maple', category: 'pizza' },
+          { text: 'Spalted Elm', category: 'exotic' },
+          { text: 'Bubinga', category: 'pizza' },
+          { text: 'Cherry', category: 'pizza' },
+          { text: 'Indian Rosewood', category: 'pizza' },
+          { text: 'Burmese Rosewood', category: 'pizza' },
+          { text: 'Padauk', category: 'pizza' },
+          { text: 'Elm', category: 'pizza' },
+          { text: 'Maple', category: 'pizza' },
+          { text: 'Catalpa', category: 'pizza' },
+          { text: 'Birch', category: 'pizza' },
+          { text: 'Cedar', category: 'pizza' }
+        ],
+        icecreamscoops: [
+          { text: 'Green', category: 'icecream' },
+          { text: 'Red', category: 'icecream' },
+          { text: 'Blue', category: 'icecream' },
+          { text: 'Spalted Maple', category: 'icecream' },
+          { text: 'Spalted Elm', category: 'icecream' },
+          { text: 'Bubinga', category: 'icecream' },
+          { text: 'Cherry', category: 'icecream' },
+          { text: 'Indian Rosewood', category: 'icecream' },
+          { text: 'Burmese Rosewood', category: 'icecream' },
+          { text: 'Padauk', category: 'icecream' },
+          { text: 'Elm', category: 'icecream' },
+          { text: 'Maple', category: 'icecream' },
+          { text: 'Catalpa', category: 'icecream' },
+          { text: 'Birch', category: 'icecream' },
+          { text: 'Cedar', category: 'icecream' }
+        ],
+        seamrippers: [
+          { text: 'Green', category: 'seamripper' },
+          { text: 'Red', category: 'seamripper' },
+          { text: 'Blue', category: 'seamripper' },
+          { text: 'Spalted Maple', category: 'seamripper' },
+          { text: 'Spalted Elm', category: 'seamripper' },
+          { text: 'Bubinga', category: 'seamripper' },
+          { text: 'Cherry', category: 'seamripper' },
+          { text: 'Indian Rosewood', category: 'seamripper' },
+          { text: 'Burmese Rosewood', category: 'seamripper' },
+          { text: 'Padauk', category: 'seamripper' },
+          { text: 'Elm', category: 'seamripper' },
+          { text: 'Maple', category: 'seamripper' },
+          { text: 'Catalpa', category: 'seamripper' },
+          { text: 'Birch', category: 'seamripper' },
+          { text: 'Cedar', category: 'seamripper' }
+        ],
+        corkscrews: [
+          { text: 'Green', category: 'corkscrew' },
+          { text: 'Red', category: 'corkscrew' },
+          { text: 'Blue', category: 'corkscrew' },
+          { text: 'Spalted Maple', category: 'corkscrew' },
+          { text: 'Spalted Elm', category: 'corkscrew' },
+          { text: 'Bubinga', category: 'corkscrew' },
+          { text: 'Cherry', category: 'corkscrew' },
+          { text: 'Indian Rosewood', category: 'corkscrew' },
+          { text: 'Burmese Rosewood', category: 'corkscrew' },
+          { text: 'Padauk', category: 'corkscrew' },
+          { text: 'Elm', category: 'corkscrew' },
+          { text: 'Maple', category: 'corkscrew' },
+          { text: 'Catalpa', category: 'corkscrew' },
+          { text: 'Birch', category: 'corkscrew' },
+          { text: 'Cedar', category: 'corkscrew' }
+        ],
+        maps: [
+          { text: 'small', category: 'small-map' },
+          { text: 'medium', category: 'medium-map' },
+          { text: 'large', category: 'large-map' }
+        ],
+        steampunklamps: [
+          { text: 'Lamp', category: 'steampunklamp' }
+        ],
+        spirtles: [
+          { text: 'Spirtle', category: 'spirtle' }
+        ],
+        muddlers: [
+          { text: 'Muddler', category: 'muddler' }
+        ],
+        rollingpins: [
+          { text: 'Rolling Pin', category: 'rollingpin' }
+        ],
+        shavingkits: [
+          { text: 'Level 1', category: 'shaving1' },
+          { text: 'Level 2', category: 'shaving2' }
+        ],
+        steampunklamps: [
+          { text: 'Lamp', category: 'steampunklamp' }
+        ],
+        coffeegrinders: [
+          { text: 'Coffee Grinder', category: 'coffee' }
+        ],
+        clocks: [
+          { text: 'Level 1', category: 'clock1' },
+          { text: 'Level 2', category: 'clock2' },
+          { text: 'Level 3', category: 'clock3' }
+        ],
+        cribboards: [
+          { text: 'Level 1', category: 'crib1' },
+          { text: 'Level 2', category: 'crib2' },
+          { text: 'Level 3', category: 'crib3' }
+        ]
+      },
+      methods: {
+        showItems: function(product) {
+          itemsTag = document.getElementById("items");
+          product.forEach(itemsTag.innerHTML + "<button>i.text</button>");
+        }
+      }
+    }) 
+
+  </script>
+ </body>
+</html>
