@@ -187,42 +187,9 @@
         <q-step title="Select a Product">
           <div>
             <div class="row gutter wrap justify-stretch content-center">
-              <div class="width-1of12 auto">
-                <button id="addProduct" class="primary big" @click="selectProduct('pen')">
-                  <img src="~assets/pen.png" alt="pens">
-                </button>
-                <button id="addProduct" class="primary big" @click="selectProduct('peppermill')">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
+              <div class="gutter width-1of12 auto">
+                <button id="addProduct" class="primary big" @click="clickMethod(item)" v-for="item in productTypes">
+                  <img :src= "'/src/statics/'+item[1]" />
                 </button>
               </div>
             </div>
@@ -308,10 +275,10 @@
         price: 85,
         pp: false,
         productTypes: [
-          ['pens', '~assets/pen.png'],
+          ['pens', 'pen.png'],
           ['peppermills', '~assets/peppermill.png'],
           ['pizzacutters', '~assets/peppermill.png'],
-          ['icecreamscoops', '~assets/peppermill.png'],
+          ['icecreamscoops', '~assets/pizzacutter.png'],
           ['seamrippers', '~assets/peppermill.png'],
           ['corkscrews', '~assets/peppermill.png'],
           ['shavingkits', '~assets/peppermill.png'],
@@ -470,7 +437,6 @@
     methods: {
       selectProduct: function (productType) {
         alert('selected ' + productType)
-        nextStep()
       },
 
       clickMethod: function () {
