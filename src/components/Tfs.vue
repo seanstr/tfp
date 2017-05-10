@@ -184,71 +184,304 @@
 
     <div id="stepper-section">
       <q-stepper @finish="finish()" ref="stepper">
-        <q-step title="Add Products">
-        <div>
-          <div class="row gutter wrap justify-stretch content-center">
-            <div class="width-1of12 auto">
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
-              <button id="addProduct" class="primary big" @click="clickMethod()">
-                <img src="~assets/peppermill.png" alt="peppermills">
-              </button>
+        <q-step title="Select a Product">
+          <div>
+            <div class="row gutter wrap justify-stretch content-center">
+              <div class="width-1of12 auto">
+                <button id="addProduct" class="primary big" @click="selectProduct('pen')">
+                  <img src="~assets/pen.png" alt="pens">
+                </button>
+                <button id="addProduct" class="primary big" @click="selectProduct('peppermill')">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
         </q-step>
         <!-- Step specifying when user should be able to jump to next step -->
-        <q-step title="Create an ad group" :ready="ready">
-          Content, DOM Elements, Components, ...
-          Do something and change 'ready' variable to boolean 'true'.
+        <q-step title="Select an Item" :ready="true">
+          <div>
+            <div class="row gutter wrap justify-stretch content-center">
+              <div class="width-1of12 auto">
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+                <button id="addProduct" class="primary big" @click="clickMethod()">
+                  <img src="~assets/peppermill.png" alt="peppermills">
+                </button>
+              </div>
+            </div>
+          </div>
         </q-step>
-        <q-step title="Create an ad">
-          Content, DOM Elements, Components, ...
+        <q-step title="Finish">
+          <div class="full-width">
+            <div class="row gutter wrap justify-stretch content-center">
+              <div class="width-1of1 auto">
+                <div>
+                  <label>Quantity:</label>
+                  <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
+                </div>
+                <div>
+                  <label>Price:</label>
+                  <input v-model="price" placeholder="Unit price">
+                </div>
+                <div>
+                  <label>Type:</label>
+                  <label>pp</label>
+                  <q-toggle v-model="pp"></q-toggle>
+                  <label>pl</label>
+                </div>
+              </div>
+            </div>
+          </div>
         </q-step>
       </q-stepper>
     </div>
-
   </q-layout>
 </template>
 
 <script>
-export default {
-  data () {
-    return {}
+  export default {
+    data () {
+      return {
+        quantity: 1,
+        price: 85,
+        pp: false,
+        productTypes: [
+          ['pens', '~assets/pen.png'],
+          ['peppermills', '~assets/peppermill.png'],
+          ['pizzacutters', '~assets/peppermill.png'],
+          ['icecreamscoops', '~assets/peppermill.png'],
+          ['seamrippers', '~assets/peppermill.png'],
+          ['corkscrews', '~assets/peppermill.png'],
+          ['shavingkits', '~assets/peppermill.png'],
+          ['lamps', '~assets/peppermill.png'],
+          ['clocks', '~assets/peppermill.png'],
+          ['maps', '~assets/peppermill.png']
+        ],
+        pens: [
+          ['30/30 lever', 75, '~assets/pens/peppermill.png'],
+          ['30 cal', 75, '~assets/pens/peppermill.png'],
+          ['50 cal', 55, '~assets/pens/peppermill.png'],
+          ['celtic', 95, '~assets/pens/celtic.png'],
+          ['crystal', 45, '~assets/pens/peppermill.png'],
+          ['dragon', 95, '~assets/pens/dragon.png'],
+          ['firefighter', 120, '~assets/pens/peppermill.png'],
+          ['flyfish', 75, '~assets/pens/peppermill.png'],
+          ['harley', 95, '~assets/pens/peppermill.png'],
+          ['revolver', 95, '~assets/pens/peppermill.png'],
+          ['shotgun', 95, '~assets/pens/shotgun.png'],
+          ['skeletonkey', 85, '~assets/pens/peppermill.png'],
+          ['steampunk', 95, '~assets/pens/peppermill.png'],
+          ['stylus', 55, '~assets/pens/peppermill.png'],
+          ['tech', 55, '~assets/pens/peppermill.png']
+        ],
+        penwood: [
+          'antler', 'cocobolo', 'mahogany', 'maple', 'cherry', 'dark', 'light', 'red', 'other'
+        ],
+        penmetal: [
+          'brassplain', 'brassfancy', 'copper', 'gunmetal', 'chrome', 'pewter', 'n/a'
+        ],
+        peppermills: [
+          ['b_w_ebony', 150, '~assets/peppermills/peppermill.png'],
+          ['bubinga', 85, '~assets/peppermills/peppermill.png'],
+          ['burnt cedar', 75, '~assets/peppermills/peppermill.png'],
+          ['burmese redwodd', 85, '~assets/peppermills/peppermill.png'],
+          ['burnt catalpa', 75, '~assets/peppermills/peppermill.png'],
+          ['burnt elm', 75, '~assets/peppermills/dragon.png'],
+          ['catalpa', 75, '~assets/peppermills/peppermill.png'],
+          ['cedar', 75, '~assets/peppermills/peppermill.png'],
+          ['cherry', 85, '~assets/peppermills/peppermill.png'],
+          ['elm', 75, '~assets/peppermills/peppermill.png'],
+          ['indian redwood', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedblue', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedgreen', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedred', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverblue', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 85, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverred', 85, '~assets/peppermills/peppermill.png'],
+          ['mahogany', 85, '~assets/peppermills/peppermill.png'],
+          ['oak', 85, '~assets/peppermills/shotgun.png'],
+          ['padauk', 85, '~assets/peppermills/peppermill.png'],
+          ['spalted maple', 85, '~assets/peppermills/peppermill.png'],
+          ['spalted elm', 85, '~assets/peppermills/peppermill.png'],
+          ['walnut', 85, '~assets/peppermills/peppermill.png']
+        ],
+        pizzacutters: [
+          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
+          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
+          ['cedar', 60, '~assets/peppermills/peppermill.png'],
+          ['cherry', 60, '~assets/peppermills/peppermill.png'],
+          ['elm', 60, '~assets/peppermills/peppermill.png'],
+          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
+          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
+          ['oak', 60, '~assets/peppermills/shotgun.png'],
+          ['padauk', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
+          ['walnut', 60, '~assets/peppermills/peppermill.png']
+        ],
+        icecreamscoops: [
+          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
+          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
+          ['cedar', 60, '~assets/peppermills/peppermill.png'],
+          ['cherry', 60, '~assets/peppermills/peppermill.png'],
+          ['elm', 60, '~assets/peppermills/peppermill.png'],
+          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
+          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
+          ['oak', 60, '~assets/peppermills/shotgun.png'],
+          ['padauk', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
+          ['walnut', 60, '~assets/peppermills/peppermill.png']
+        ],
+        seamrippers: [
+          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
+          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
+          ['cedar', 60, '~assets/peppermills/peppermill.png'],
+          ['cherry', 60, '~assets/peppermills/peppermill.png'],
+          ['elm', 60, '~assets/peppermills/peppermill.png'],
+          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
+          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
+          ['oak', 60, '~assets/peppermills/shotgun.png'],
+          ['padauk', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
+          ['walnut', 60, '~assets/peppermills/peppermill.png']
+        ],
+        corkscrews: [
+          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
+          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
+          ['cedar', 60, '~assets/peppermills/peppermill.png'],
+          ['cherry', 60, '~assets/peppermills/peppermill.png'],
+          ['elm', 60, '~assets/peppermills/peppermill.png'],
+          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
+          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
+          ['oak', 60, '~assets/peppermills/shotgun.png'],
+          ['padauk', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
+          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
+          ['walnut', 60, '~assets/peppermills/peppermill.png']
+        ],
+        shavingkits: [
+          ['cocobolo', 235, '~assets/peppermills/peppermill.png']
+        ],
+        lamps: [
+          ['steampunk', 235, '~assets/peppermills/peppermill.png'],
+          ['tripledome', 235, '~assets/peppermills/peppermill.png'],
+          ['dome', 235, '~assets/peppermills/peppermill.png'],
+          ['edison', 235, '~assets/peppermills/peppermill.png']
+        ],
+        clocks: [
+          ['dome', 235, '~assets/peppermills/peppermill.png']
+        ],
+        maps: [
+          ['small', 185, '~assets/peppermills/peppermill.png'],
+          ['medium', 235, '~assets/peppermills/peppermill.png'],
+          ['large', 295, '~assets/peppermills/peppermill.png']
+        ]
+      }
+    },
+
+    methods: {
+      selectProduct: function (productType) {
+        alert('selected ' + productType)
+        nextStep()
+      },
+
+      clickMethod: function () {
+        alert('clickMethod')
+      },
+
+      finish: function () {
+        alert('finished')
+      }
+    }
   }
-}
 </script>
 
 <style>
