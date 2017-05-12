@@ -184,12 +184,12 @@
 
     <div id="stepper-section">
       <q-stepper @finish="finish()" ref="stepper">
-        <q-step title="Select a Product">
+        <q-step title="Select a Product" :ready="true">
           <div>
-            <div class="row gutter wrap justify-stretch content-center">
-              <div class="gutter width-1of12 auto">
-                <button id="addProduct" class="primary big" @click="clickMethod(item)" v-for="item in productTypes">
-                  <img :src= "'/src/statics/'+item[1]" />
+            <div class="row wrap">
+              <div class="width-1of12 auto">
+                <button id="addProduct" class="tx-img-button" @click="clickMethod(item)" v-for="item in productTypes">
+                  <img :src= "'./statics/'+item[1]" :alt="item[0]" />
                 </button>
               </div>
             </div>
@@ -276,15 +276,15 @@
         pp: false,
         productTypes: [
           ['pens', 'pen.png'],
-          ['peppermills', '~assets/peppermill.png'],
-          ['pizzacutters', '~assets/peppermill.png'],
-          ['icecreamscoops', '~assets/pizzacutter.png'],
-          ['seamrippers', '~assets/peppermill.png'],
-          ['corkscrews', '~assets/peppermill.png'],
-          ['shavingkits', '~assets/peppermill.png'],
-          ['lamps', '~assets/peppermill.png'],
-          ['clocks', '~assets/peppermill.png'],
-          ['maps', '~assets/peppermill.png']
+          ['peppermills', 'peppermill.png'],
+          ['pizzacutters', 'pizzacutter.png'],
+          ['icecreamscoops', 'icecreamscoop.png'],
+          ['seamrippers', 'seamripper.png'],
+          ['corkscrews', 'corkscrew.png'],
+          ['shavingkits', 'peppermill.png'],
+          ['lamps', 'peppermill.png'],
+          ['clocks', 'peppermill.png'],
+          ['maps', 'peppermill.png']
         ],
         pens: [
           ['30/30 lever', 75, '~assets/pens/peppermill.png'],
