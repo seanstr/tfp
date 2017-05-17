@@ -188,7 +188,7 @@
           <div>
             <div class="row wrap">
               <div class="width-1of12 auto">
-                <button id="addProduct" class="tx-img-button" @click="clickMethod(item)" v-for="item in productTypes">
+                <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProductType(item[0])" v-for="item in productTypes">
                   <img :src= "'./statics/'+item[1]" :alt="item[0]" />
                 </button>
               </div>
@@ -198,44 +198,28 @@
         <!-- Step specifying when user should be able to jump to next step -->
         <q-step title="Select an Item" :ready="true">
           <div>
-            <div class="row gutter wrap justify-stretch content-center">
+            <div class="row wrap">
               <div class="width-1of12 auto">
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
+                <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
+                  <img :src= "'./statics/'+item[2]" :alt="item[0]" />
                 </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
-                <button id="addProduct" class="primary big" @click="clickMethod()">
-                  <img src="~assets/peppermill.png" alt="peppermills">
-                </button>
+              </div>
+            </div>
+          </div>
+        </q-step>
+        <!-- Step specifying when user should be able to jump to next step -->
+        <q-step title="Item Info" :ready="true">
+          <div>
+            <div class="row wrap">
+              <div class="width-1of12 auto">
+                <div>
+                  <label>Quantity:</label>
+                  <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
+                </div>
+                <div>
+                  <label>Price:</label>
+                  <input v-model="price" placeholder="Unit price">
+                </div>
               </div>
             </div>
           </div>
@@ -245,18 +229,18 @@
             <div class="row gutter wrap justify-stretch content-center">
               <div class="width-1of1 auto">
                 <div>
-                  <label>Quantity:</label>
-                  <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
-                </div>
-                <div>
-                  <label>Price:</label>
-                  <input v-model="price" placeholder="Unit price">
-                </div>
-                <div>
                   <label>Type:</label>
                   <label>pp</label>
                   <q-toggle v-model="pp"></q-toggle>
                   <label>pl</label>
+                </div>
+                <div>
+                  <label>Tx Price:</label>
+                  <input v-model="price" placeholder="Total">
+                  +
+                  <input v-model="tax" placeholder="Tax">
+                  =
+                  <input v-model="total" placeholder="Pay">
                 </div>
               </div>
             </div>
@@ -271,9 +255,12 @@
   export default {
     data () {
       return {
-        quantity: 1,
+        quantity: 5,
         price: 85,
+        tax: 0,
+        total: 0,
         pp: false,
+        productType: '',
         productTypes: [
           ['pens', 'pen.png'],
           ['peppermills', 'peppermill.png'],
@@ -286,7 +273,7 @@
           ['clocks', 'peppermill.png'],
           ['maps', 'peppermill.png']
         ],
-        pens: [
+        'pens': [
           ['30/30 lever', 75, '~assets/pens/peppermill.png'],
           ['30 cal', 75, '~assets/pens/peppermill.png'],
           ['50 cal', 55, '~assets/pens/peppermill.png'],
@@ -309,8 +296,8 @@
         penmetal: [
           'brassplain', 'brassfancy', 'copper', 'gunmetal', 'chrome', 'pewter', 'n/a'
         ],
-        peppermills: [
-          ['b_w_ebony', 150, '~assets/peppermills/peppermill.png'],
+        'peppermills': [
+          ['b_w_ebony', 150, 'peppermills/peppermill.png'],
           ['bubinga', 85, '~assets/peppermills/peppermill.png'],
           ['burnt cedar', 75, '~assets/peppermills/peppermill.png'],
           ['burmese redwodd', 85, '~assets/peppermills/peppermill.png'],
@@ -435,12 +422,14 @@
     },
 
     methods: {
-      selectProduct: function (productType) {
+      selectProductType: function (productType) {
         alert('selected ' + productType)
+        this.productType = productType
       },
 
-      clickMethod: function () {
-        alert('clickMethod')
+      selectProduct: function (_product, _price) {
+        alert(_product + ': ' + _price)
+        this.price = _price
       },
 
       finish: function () {
