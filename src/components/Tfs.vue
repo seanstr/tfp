@@ -201,14 +201,14 @@
             <div class="row wrap">
               <div class="width-1of12 auto">
                 <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
-                  <img :src= "'./statics/'+item[2]" :alt="item[0]" />
+                  <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
                 </button>
               </div>
             </div>
           </div>
         </q-step>
         <!-- Step specifying when user should be able to jump to next step -->
-        <q-step title="Item Info" :ready="true">
+        <q-step title="Finish" :ready="true">
           <div>
             <div class="row wrap">
               <div class="width-1of12 auto">
@@ -224,29 +224,29 @@
             </div>
           </div>
         </q-step>
-        <q-step title="Finish">
-          <div class="full-width">
-            <div class="row gutter wrap justify-stretch content-center">
-              <div class="width-1of1 auto">
-                <div>
-                  <label>Type:</label>
-                  <label>pp</label>
-                  <q-toggle v-model="pp"></q-toggle>
-                  <label>pl</label>
-                </div>
-                <div>
-                  <label>Tx Price:</label>
-                  <input v-model="price" placeholder="Total">
-                  +
-                  <input v-model="tax" placeholder="Tax">
-                  =
-                  <input v-model="total" placeholder="Pay">
-                </div>
+      </q-stepper>
+      <q-card title="Finish">
+        <div class="full-width">
+          <div class="row gutter wrap justify-stretch content-center">
+            <div class="width-1of1 auto">
+              <div>
+                <label>Type:</label>
+                <label>pp</label>
+                <q-toggle v-model="pp"></q-toggle>
+                <label>pl</label>
+              </div>
+              <div>
+                <label>Tx Price:</label>
+                <input v-model="price" placeholder="Total">
+                +
+                <input v-model="tax" placeholder="Tax">
+                =
+                <input v-model="total" placeholder="Pay">
               </div>
             </div>
           </div>
-        </q-step>
-      </q-stepper>
+        </div>
+      </q-card>
     </div>
   </q-layout>
 </template>
@@ -255,7 +255,7 @@
   export default {
     data () {
       return {
-        quantity: 5,
+        quantity: 1,
         price: 85,
         tax: 0,
         total: 0,
@@ -273,22 +273,26 @@
           ['clocks', 'peppermill.png'],
           ['maps', 'peppermill.png']
         ],
-        'pens': [
-          ['30/30 lever', 75, '~assets/pens/peppermill.png'],
-          ['30 cal', 75, '~assets/pens/peppermill.png'],
-          ['50 cal', 55, '~assets/pens/peppermill.png'],
-          ['celtic', 95, '~assets/pens/celtic.png'],
-          ['crystal', 45, '~assets/pens/peppermill.png'],
-          ['dragon', 95, '~assets/pens/dragon.png'],
-          ['firefighter', 120, '~assets/pens/peppermill.png'],
-          ['flyfish', 75, '~assets/pens/peppermill.png'],
-          ['harley', 95, '~assets/pens/peppermill.png'],
-          ['revolver', 95, '~assets/pens/peppermill.png'],
-          ['shotgun', 95, '~assets/pens/shotgun.png'],
-          ['skeletonkey', 85, '~assets/pens/peppermill.png'],
-          ['steampunk', 95, '~assets/pens/peppermill.png'],
-          ['stylus', 55, '~assets/pens/peppermill.png'],
-          ['tech', 55, '~assets/pens/peppermill.png']
+        pens: [
+          ['30/30 lever', 75, 'pens/lever.jpg'],
+          ['30 cal', 75, 'pens/peppermill.png'],
+          ['50 cal', 55, 'pens/peppermill.png'],
+          ['celtic', 95, 'pens/celtic.jpg'],
+          ['cowboy', 85, 'pens/cowboy.jpg'],
+          ['crystal', 45, 'pens/princess.jpg'],
+          ['dragon', 95, 'pens/dragon.jpg'],
+          ['firefighter', 120, 'pens/firefighter.jpg'],
+          ['flyfish', 75, 'pens/flyfish.jpg'],
+          ['harley', 95, 'pens/harley.jpg'],
+          ['revolver', 95, 'pens/revolver.jpg'],
+          ['shotgun', 95, 'pens/shotgun.jpg'],
+          ['skeletonkey', 85, 'pens/peppermill.jpg'],
+          ['skull', 85, 'pens/skull.jpg'],
+          ['steampunk', 95, 'pens/steampunk.jpg'],
+          ['stylus', 55, 'pens/stylus.jpg'],
+          ['tech', 55, 'pens/tech.jpg'],
+          ['victoriacross', 55, 'pens/victoriacross.jpg'],
+
         ],
         penwood: [
           'antler', 'cocobolo', 'mahogany', 'maple', 'cherry', 'dark', 'light', 'red', 'other'
@@ -424,7 +428,7 @@
     methods: {
       selectProductType: function (productType) {
         alert('selected ' + productType)
-        this.productType = productType
+        this.productType = this[productType]
       },
 
       selectProduct: function (_product, _price) {
