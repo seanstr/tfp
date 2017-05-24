@@ -182,30 +182,34 @@
       </section>
     </div>
 
-    <div id="stepper-section" class="list">
-      <q-collapsible id="chooseProduct" opened icon="explore" label="Select a Product">
+    <div id="stepper-section" class="list item-delimiter">
+      <q-collapsible id="chooseProduct" opened icon="explore" label="Select a Product" group="tx" ref="chooseProduct">
         <div>
           <div class="row wrap">
-            <div class="width-1of12 auto">
+            <div class="width-4of12 auto">
               <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProductType(item[0])" v-for="item in productTypes">
-                <img :src= "'./statics/'+item[1]" :alt="item[0]" />
+                <img :src= "'./statics/'+item[1]" :alt="item[0]" style="width: 128px" />
+                <br/>
+                <span class="label">{{item[0]}}</span> 
               </button>
             </div>
           </div>
         </div>
       </q-collapsible>
-      <q-collapsible id="chooseItem" icon="perm_identity" label="Select an Item">
+      <q-collapsible id="chooseItem" icon="perm_identity" label="Select an Item" group="tx" ref="chooseItem">
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
               <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
                 <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
+                <br/>
+                <span class="label">{{item[0]}}</span> 
               </button>
             </div>
           </div>
         </div>
       </q-collapsible>
-      <q-collapsible id="chooseQty" icon="shopping_cart" label="Finish">
+      <q-collapsible id="chooseQty" icon="shopping_cart" label="Choose Quantity" group="tx" ref="chooseQty">
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
@@ -219,12 +223,40 @@
               </div>
             </div>
           </div>
+          <div class="row wrap">
+            <div class="width-1of12 auto">
+                <button class="primary" @click="finish()">Finish and Pay</button>
+                <button class="primary" @click="saveAndAddNew()">Add Another Item</button>
+            </div>
+          </div>
         </div>
       </q-collapsible>
 
-      <q-card title="Finish">
-        <div class="full-width">
+      <hr/><br/><br/>
+
+      <div class="card">
+        <div class="card-title bg-primary text-white">
+          Finish Tx
+        </div>
+        <div class="card-content card-force-top-padding">
           <div class="row gutter wrap justify-stretch content-center">
+
+            <div class="width-1of1 auto">
+              <div class="row tx-rows-title">
+                <div class="width-1of3">Product</div>
+                <div class="width-2of4">Description</div>
+                <div class="auto">Price</div>
+              </div>
+            </div>
+
+            <div class="width-1of1 auto">
+              <div class="row">
+                <div class="width-1of3">pen</div>
+                <div class="width-2of4">Winchester Lever Action</div>
+                <div class="auto">75</div>
+              </div>
+            </div>
+
             <div class="width-1of1 auto">
               <div>
                 <label>Type:</label>
@@ -240,13 +272,10 @@
                 =
                 <input v-model="total" placeholder="Pay">
               </div>
-              <div>
-                <button class="primary">Add Item to Tx</button>
-              </div>
             </div>
           </div>
         </div>
-      </q-card>
+      </div>
     </div>
   </q-layout>
 </template>
@@ -268,14 +297,14 @@
           ['icecreamscoops', 'icecreamscoop.png'],
           ['seamrippers', 'seamripper.png'],
           ['corkscrews', 'corkscrew.png'],
-          ['shavingkits', 'peppermill.png'],
-          ['lamps', 'peppermill.png'],
-          ['clocks', 'peppermill.png'],
-          ['maps', 'peppermill.png']
+          ['shavingkits', 'shavingkit.jpg'],
+          ['lamps', 'steampunklamp.jpg'],
+          ['clocks', 'clocks.jpg'],
+          ['maps', 'maps.jpg']
         ],
         pens: [
           ['30/30 lever', 75, 'pens/lever.jpg'],
-          ['30 cal', 75, 'pens/peppermill.png'],
+          ['30 cal', 75, 'pens/30cal.png'],
           ['50 cal', 55, 'pens/peppermill.png'],
           ['celtic', 95, 'pens/celtic.jpg'],
           ['cowboy', 85, 'pens/cowboy.jpg'],
@@ -426,17 +455,21 @@
 
     methods: {
       selectProductType: function (productType) {
-        alert('selected ' + productType)
         this.productType = this[productType]
+        this.$refs['chooseItem'].open()
       },
 
       selectProduct: function (_product, _price) {
-        alert(_product + ': ' + _price)
         this.price = _price
+        this.$refs['chooseQty'].open()
       },
 
       finish: function () {
         alert('finished')
+      },
+
+      saveAndAddNew: function () {
+        alert('saveAndAddNew')
       }
     }
   }
