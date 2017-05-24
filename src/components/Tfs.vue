@@ -182,49 +182,46 @@
       </section>
     </div>
 
-    <div id="stepper-section">
-      <q-stepper @finish="finish()" ref="stepper">
-        <q-step title="Select a Product" :ready="true">
-          <div>
-            <div class="row wrap">
-              <div class="width-1of12 auto">
-                <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProductType(item[0])" v-for="item in productTypes">
-                  <img :src= "'./statics/'+item[1]" :alt="item[0]" />
-                </button>
+    <div id="stepper-section" class="list">
+      <q-collapsible id="chooseProduct" opened icon="explore" label="Select a Product">
+        <div>
+          <div class="row wrap">
+            <div class="width-1of12 auto">
+              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProductType(item[0])" v-for="item in productTypes">
+                <img :src= "'./statics/'+item[1]" :alt="item[0]" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </q-collapsible>
+      <q-collapsible id="chooseItem" icon="perm_identity" label="Select an Item">
+        <div>
+          <div class="row wrap">
+            <div class="width-1of12 auto">
+              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
+                <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </q-collapsible>
+      <q-collapsible id="chooseQty" icon="shopping_cart" label="Finish">
+        <div>
+          <div class="row wrap">
+            <div class="width-1of12 auto">
+              <div>
+                <label>Quantity:</label>
+                <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
+              </div>
+              <div>
+                <label>Price:</label>
+                <input v-model="price" placeholder="Unit price">
               </div>
             </div>
           </div>
-        </q-step>
-        <!-- Step specifying when user should be able to jump to next step -->
-        <q-step title="Select an Item" :ready="true">
-          <div>
-            <div class="row wrap">
-              <div class="width-1of12 auto">
-                <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
-                  <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </q-step>
-        <!-- Step specifying when user should be able to jump to next step -->
-        <q-step title="Finish" :ready="true">
-          <div>
-            <div class="row wrap">
-              <div class="width-1of12 auto">
-                <div>
-                  <label>Quantity:</label>
-                  <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
-                </div>
-                <div>
-                  <label>Price:</label>
-                  <input v-model="price" placeholder="Unit price">
-                </div>
-              </div>
-            </div>
-          </div>
-        </q-step>
-      </q-stepper>
+        </div>
+      </q-collapsible>
+
       <q-card title="Finish">
         <div class="full-width">
           <div class="row gutter wrap justify-stretch content-center">
@@ -242,6 +239,9 @@
                 <input v-model="tax" placeholder="Tax">
                 =
                 <input v-model="total" placeholder="Pay">
+              </div>
+              <div>
+                <button class="primary">Add Item to Tx</button>
               </div>
             </div>
           </div>
@@ -291,8 +291,7 @@
           ['steampunk', 95, 'pens/steampunk.jpg'],
           ['stylus', 55, 'pens/stylus.jpg'],
           ['tech', 55, 'pens/tech.jpg'],
-          ['victoriacross', 55, 'pens/victoriacross.jpg'],
-
+          ['victoriacross', 55, 'pens/victoriacross.jpg']
         ],
         penwood: [
           'antler', 'cocobolo', 'mahogany', 'maple', 'cherry', 'dark', 'light', 'red', 'other'
