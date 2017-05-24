@@ -46,10 +46,7 @@
         <div class="card">
           <div class="card-content">
             <div class="row">
-              <span class="width-1of4">June 13 2017</span>
-              <span class="auto">Millarville Farmers Market</span>
-              <span class="auto">Team Sean</span>
-              <span id="tx-total" class="auto">Total: 595</span>
+              <span class="width-1of4">June 13 2017</span><span class="auto">Millarville Farmers Market</span><span class="auto">Team Sean</span><span id="tx-total" class="auto">Total: 595</span>
             </div>
           </div>
         </div>
@@ -59,10 +56,7 @@
         <section class="card">
           <div class="card-content">
             <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div>
-              <div class="width-1of3">Time</div>
-              <div class="width-2of4">TxTotal</div>
-              <div class="auto">TxType</div>
+              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
             </div>
             <div class="row tx-summary">
               <div class="width-1of5">00010</div>
@@ -73,54 +67,34 @@
               <div class="auto">pp</div>
             </div>
             <div class="row tx-rows-title">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">Product</div>
-              <div class="width-2of4">Description</div>
-              <div class="auto">Price</div>
+              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">peppermill</div>
-              <div class="width-2of4">Green</div>
-              <div class="auto">85</div>
+              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Green</div><div class="auto">85</div>
             </div>
           </div>
         </section>
         <section class="card">
           <div class="card-content">
             <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div>
-              <div class="width-1of3">Time</div>
-              <div class="width-2of4">TxTotal</div>
-              <div class="auto">TxType</div>
+              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
             </div>
             <div class="row tx-summary">
               <div class="width-1of5">00009</div>
               <div class="width-1of3">14:00</div>
               <div class="row width-2of4">
-                <div class="auto">170</div>
-                <div class="auto">8.5</div>
-                <div class="auto">185.5</div>
+                <div class="auto">170</div><div class="auto">8.5</div><div class="auto">185.5</div>
               </div>
               <div class="auto">pl</div>
             </div>
             <div class="row tx-rows-title">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">Product</div>
-              <div class="width-2of4">Description</div>
-              <div class="auto">Price</div>
+              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">peppermill</div>
-              <div class="width-2of4">Red</div>
-              <div class="auto">85</div>
+              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Red</div><div class="auto">85</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">peppermill</div>
-              <div class="width-2of4">Blue</div>
-              <div class="auto">85</div>
+              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Blue</div><div class="auto">85</div>
             </div>
           </div>
         </section>
@@ -128,10 +102,7 @@
         <section class="card">
           <div class="card-content">
             <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div>
-              <div class="width-1of3">Time</div>
-              <div class="width-2of4">TxTotal</div>
-              <div class="auto">TxType</div>
+              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
             </div>
             <div class="row tx-summary">
               <div class="width-1of5">00008</div>
@@ -142,40 +113,22 @@
               <div class="auto">pp</div>
             </div>
             <div class="row tx-rows-title">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">Product</div>
-              <div class="width-2of4">Description</div>
-              <div class="auto">Price</div>
+              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">pen</div>
-              <div class="width-2of4">Winchester Lever Action</div>
-              <div class="auto">75</div>
+              <div class="offset-1of5"></div><div class="width-1of3">pen</div><div class="width-2of4">Winchester Lever Action</div><div class="auto">75</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">pen</div>
-              <div class="width-2of4">Dragon</div>
-              <div class="auto">95</div>
+              <div class="offset-1of5"></div><div class="width-1of3">pen</div><div class="width-2of4">Dragon</div><div class="auto">95</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">pen case</div>
-              <div class="width-2of4">Gun case</div>
-              <div class="auto">20</div>
+              <div class="offset-1of5"></div><div class="width-1of3">pen case</div><div class="width-2of4">Gun case</div><div class="auto">20</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">peppermill</div>
-              <div class="width-2of4">Spalted Maple</div>
-              <div class="auto">85</div>
+              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Spalted Maple</div><div class="auto">85</div>
             </div>
             <div class="row">
-              <div class="offset-1of5"></div>
-              <div class="width-1of3">peppermill</div>
-              <div class="width-2of4">Burnt Birch</div>
-              <div class="auto">75</div>
+              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Burnt Birch</div><div class="auto">75</div>
             </div>
           </div>
         </section>
@@ -200,7 +153,7 @@
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
-              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item[2], item[1])" v-for="item in productType">
+              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item)" v-for="item in productType">
                 <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
                 <br/>
                 <span class="label">{{item[0]}}</span> 
@@ -240,33 +193,19 @@
         </div>
         <div class="card-content card-force-top-padding">
           <div class="row gutter wrap justify-stretch content-center">
-
-            <div class="width-1of1 auto">
-              <div class="row tx-rows-title">
-                <div class="width-1of3">Product</div>
-                <div class="width-2of4">Description</div>
-                <div class="auto">Price</div>
-              </div>
-            </div>
-
-            <div class="width-1of1 auto">
-              <div class="row">
-                <div class="width-1of3">pen</div>
-                <div class="width-2of4">Winchester Lever Action</div>
-                <div class="auto">75</div>
-              </div>
-            </div>
+            <q-data-table :data="newItems" :config="config" :columns="columns">
+            </q-data-table>
 
             <div class="width-1of1 auto">
               <div>
                 <label>Type:</label>
-                <label>pp</label>
-                <q-toggle v-model="pp"></q-toggle>
                 <label>pl</label>
+                <q-toggle v-model="pp" @input="selectPayType"></q-toggle>
+                <label>pp</label>
               </div>
               <div>
                 <label>Tx Price:</label>
-                <input v-model="price" placeholder="Total">
+                <input v-model="runningTotal" placeholder="Total">
                 +
                 <input v-model="tax" placeholder="Tax">
                 =
@@ -284,12 +223,31 @@
   export default {
     data () {
       return {
+        // settings
+        taxRate: 0.05,
+
+        // item values
         quantity: 1,
-        price: 85,
+        price: 0,
         tax: 0,
         total: 0,
+
+        // transaction values
+        runningTotal: 0,
+        taxTotal: 0,
+        transactionTotal: 0,
         pp: false,
+        productTypeSelected: '',
         productType: '',
+        product: '',
+
+        // transaction arrays
+        transactions: [],
+        // newItems: [{productType: 'pens', product: '30 cal', quantity: 1, price: 75, tax: 0, total: 75, runningTotal: 75}],
+        newItems: [{}],
+        // newItems: [],
+
+        // data arrays
         productTypes: [
           ['pens', 'pen.png'],
           ['peppermills', 'peppermill.png'],
@@ -330,142 +288,227 @@
         ],
         'peppermills': [
           ['b_w_ebony', 150, 'peppermills/peppermill.png'],
-          ['bubinga', 85, '~assets/peppermills/peppermill.png'],
-          ['burnt cedar', 75, '~assets/peppermills/peppermill.png'],
-          ['burmese redwodd', 85, '~assets/peppermills/peppermill.png'],
-          ['burnt catalpa', 75, '~assets/peppermills/peppermill.png'],
-          ['burnt elm', 75, '~assets/peppermills/dragon.png'],
-          ['catalpa', 75, '~assets/peppermills/peppermill.png'],
-          ['cedar', 75, '~assets/peppermills/peppermill.png'],
-          ['cherry', 85, '~assets/peppermills/peppermill.png'],
-          ['elm', 75, '~assets/peppermills/peppermill.png'],
-          ['indian redwood', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedblue', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedgreen', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedred', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverblue', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 85, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverred', 85, '~assets/peppermills/peppermill.png'],
-          ['mahogany', 85, '~assets/peppermills/peppermill.png'],
-          ['oak', 85, '~assets/peppermills/shotgun.png'],
-          ['padauk', 85, '~assets/peppermills/peppermill.png'],
-          ['spalted maple', 85, '~assets/peppermills/peppermill.png'],
-          ['spalted elm', 85, '~assets/peppermills/peppermill.png'],
-          ['walnut', 85, '~assets/peppermills/peppermill.png']
+          ['bubinga', 85, 'peppermills/peppermill.png'],
+          ['burnt cedar', 75, 'peppermills/peppermill.png'],
+          ['burmese redwodd', 85, 'peppermills/peppermill.png'],
+          ['burnt catalpa', 75, 'peppermills/peppermill.png'],
+          ['burnt elm', 75, 'peppermills/dragon.png'],
+          ['catalpa', 75, 'peppermills/peppermill.png'],
+          ['cedar', 75, 'peppermills/peppermill.png'],
+          ['cherry', 85, 'peppermills/peppermill.png'],
+          ['elm', 75, 'peppermills/peppermill.png'],
+          ['indian redwood', 85, 'peppermills/peppermill.png'],
+          ['laminatedblue', 85, 'peppermills/peppermill.png'],
+          ['laminatedgreen', 85, 'peppermills/peppermill.png'],
+          ['laminatedred', 85, 'peppermills/peppermill.png'],
+          ['laminatedsilverblue', 85, 'peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 85, 'peppermills/peppermill.png'],
+          ['laminatedsilverred', 85, 'peppermills/peppermill.png'],
+          ['mahogany', 85, 'peppermills/peppermill.png'],
+          ['oak', 85, 'peppermills/shotgun.png'],
+          ['padauk', 85, 'peppermills/peppermill.png'],
+          ['spalted maple', 85, 'peppermills/peppermill.png'],
+          ['spalted elm', 85, 'peppermills/peppermill.png'],
+          ['walnut', 85, 'peppermills/peppermill.png']
         ],
         pizzacutters: [
-          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
-          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
-          ['cedar', 60, '~assets/peppermills/peppermill.png'],
-          ['cherry', 60, '~assets/peppermills/peppermill.png'],
-          ['elm', 60, '~assets/peppermills/peppermill.png'],
-          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
-          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
-          ['oak', 60, '~assets/peppermills/shotgun.png'],
-          ['padauk', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
-          ['walnut', 60, '~assets/peppermills/peppermill.png']
+          ['burmese redwodd', 60, 'pizzacutters/peppermill.png'],
+          ['catalpa', 60, 'pizzacutters/peppermill.png'],
+          ['cedar', 60, 'pizzacutters/peppermill.png'],
+          ['cherry', 60, 'pizzacutters/peppermill.png'],
+          ['elm', 60, 'pizzacutters/peppermill.png'],
+          ['indian redwood', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedblue', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedgreen', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedred', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedsilverblue', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedsilvergreen', 60, 'pizzacutters/peppermill.png'],
+          ['laminatedsilverred', 60, 'pizzacutters/peppermill.png'],
+          ['mahogany', 60, 'pizzacutters/peppermill.png'],
+          ['oak', 60, 'pizzacutters/shotgun.png'],
+          ['padauk', 60, 'pizzacutters/peppermill.png'],
+          ['spalted maple', 60, 'pizzacutters/peppermill.png'],
+          ['spalted elm', 60, 'pizzacutters/peppermill.png'],
+          ['walnut', 60, 'pizzacutters/peppermill.png']
         ],
         icecreamscoops: [
-          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
-          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
-          ['cedar', 60, '~assets/peppermills/peppermill.png'],
-          ['cherry', 60, '~assets/peppermills/peppermill.png'],
-          ['elm', 60, '~assets/peppermills/peppermill.png'],
-          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
-          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
-          ['oak', 60, '~assets/peppermills/shotgun.png'],
-          ['padauk', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
-          ['walnut', 60, '~assets/peppermills/peppermill.png']
+          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
+          ['catalpa', 60, 'peppermills/peppermill.png'],
+          ['cedar', 60, 'peppermills/peppermill.png'],
+          ['cherry', 60, 'peppermills/peppermill.png'],
+          ['elm', 60, 'peppermills/peppermill.png'],
+          ['indian redwood', 60, 'peppermills/peppermill.png'],
+          ['laminatedblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedred', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
+          ['mahogany', 60, 'peppermills/peppermill.png'],
+          ['oak', 60, 'peppermills/shotgun.png'],
+          ['padauk', 60, 'peppermills/peppermill.png'],
+          ['spalted maple', 60, 'peppermills/peppermill.png'],
+          ['spalted elm', 60, 'peppermills/peppermill.png'],
+          ['walnut', 60, 'peppermills/peppermill.png']
         ],
         seamrippers: [
-          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
-          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
-          ['cedar', 60, '~assets/peppermills/peppermill.png'],
-          ['cherry', 60, '~assets/peppermills/peppermill.png'],
-          ['elm', 60, '~assets/peppermills/peppermill.png'],
-          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
-          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
-          ['oak', 60, '~assets/peppermills/shotgun.png'],
-          ['padauk', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
-          ['walnut', 60, '~assets/peppermills/peppermill.png']
+          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
+          ['catalpa', 60, 'peppermills/peppermill.png'],
+          ['cedar', 60, 'peppermills/peppermill.png'],
+          ['cherry', 60, 'peppermills/peppermill.png'],
+          ['elm', 60, 'peppermills/peppermill.png'],
+          ['indian redwood', 60, 'peppermills/peppermill.png'],
+          ['laminatedblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedred', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
+          ['mahogany', 60, 'peppermills/peppermill.png'],
+          ['oak', 60, 'peppermills/shotgun.png'],
+          ['padauk', 60, 'peppermills/peppermill.png'],
+          ['spalted maple', 60, 'peppermills/peppermill.png'],
+          ['spalted elm', 60, 'peppermills/peppermill.png'],
+          ['walnut', 60, 'peppermills/peppermill.png']
         ],
         corkscrews: [
-          ['burmese redwodd', 60, '~assets/peppermills/peppermill.png'],
-          ['catalpa', 60, '~assets/peppermills/peppermill.png'],
-          ['cedar', 60, '~assets/peppermills/peppermill.png'],
-          ['cherry', 60, '~assets/peppermills/peppermill.png'],
-          ['elm', 60, '~assets/peppermills/peppermill.png'],
-          ['indian redwood', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedgreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedred', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, '~assets/peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, '~assets/peppermills/peppermill.png'],
-          ['mahogany', 60, '~assets/peppermills/peppermill.png'],
-          ['oak', 60, '~assets/peppermills/shotgun.png'],
-          ['padauk', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted maple', 60, '~assets/peppermills/peppermill.png'],
-          ['spalted elm', 60, '~assets/peppermills/peppermill.png'],
-          ['walnut', 60, '~assets/peppermills/peppermill.png']
+          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
+          ['catalpa', 60, 'peppermills/peppermill.png'],
+          ['cedar', 60, 'peppermills/peppermill.png'],
+          ['cherry', 60, 'peppermills/peppermill.png'],
+          ['elm', 60, 'peppermills/peppermill.png'],
+          ['indian redwood', 60, 'peppermills/peppermill.png'],
+          ['laminatedblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedred', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
+          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
+          ['mahogany', 60, 'peppermills/peppermill.png'],
+          ['oak', 60, 'peppermills/shotgun.png'],
+          ['padauk', 60, 'peppermills/peppermill.png'],
+          ['spalted maple', 60, 'peppermills/peppermill.png'],
+          ['spalted elm', 60, 'peppermills/peppermill.png'],
+          ['walnut', 60, 'peppermills/peppermill.png']
         ],
         shavingkits: [
-          ['cocobolo', 235, '~assets/peppermills/peppermill.png']
+          ['cocobolo', 235, 'peppermills/peppermill.png']
         ],
         lamps: [
-          ['steampunk', 235, '~assets/peppermills/peppermill.png'],
-          ['tripledome', 235, '~assets/peppermills/peppermill.png'],
-          ['dome', 235, '~assets/peppermills/peppermill.png'],
-          ['edison', 235, '~assets/peppermills/peppermill.png']
+          ['steampunk', 235, 'peppermills/peppermill.png'],
+          ['tripledome', 235, 'peppermills/peppermill.png'],
+          ['dome', 235, 'peppermills/peppermill.png'],
+          ['edison', 235, 'peppermills/peppermill.png']
         ],
         clocks: [
-          ['dome', 235, '~assets/peppermills/peppermill.png']
+          ['dome', 235, 'peppermills/peppermill.png']
         ],
         maps: [
-          ['small', 185, '~assets/peppermills/peppermill.png'],
-          ['medium', 235, '~assets/peppermills/peppermill.png'],
-          ['large', 295, '~assets/peppermills/peppermill.png']
+          ['small', 185, 'peppermills/peppermill.png'],
+          ['medium', 235, 'peppermills/peppermill.png'],
+          ['large', 295, 'peppermills/peppermill.png']
+        ],
+        config: {
+          rowHeight: '50px',  // [REQUIRED] Set the row height
+          title: 'Transaction Items',
+          noHeader: false,
+          refresh: true,
+          columnPicker: false,
+          leftStickyColumns: 0,
+          rightStickyColumns: 0,
+          bodyStyle: {
+            maxHeight: '500px'
+          },
+          messages: {
+            noData: '<i>warning</i> No data available to show.',
+            noDataAfterFiltering: '<i>warning</i> No results. Please refine your search terms.'
+          },
+
+          // (optional) Override default labels. Useful for I18n.
+          labels: {
+            rows: 'Items',
+            selected: {
+              singular: 'item selected.',
+              plural: 'items selected.'
+            },
+            clear: 'clear',
+            all: 'All'
+          }
+        },
+        columns: [
+          {
+            label: 'Type', // [REQUIRED] Column name
+            field: 'productType', // [REQUIRED] Row property name
+            width: '50px' // [REQUIRED] Column width
+          },
+          {
+            label: 'Product',
+            field: 'product',
+            width: '100px'
+          },
+          {
+            label: 'Qty',
+            field: 'quantity',
+            width: '20px'
+          },
+          {
+            label: 'Price',
+            field: 'price',
+            width: '30px'
+          },
+          {
+            label: 'Tax',
+            field: 'tax',
+            width: '30px'
+          },
+          {
+            label: 'Total',
+            field: 'total',
+            width: '40px'
+          },
+          {
+            label: 'Running',
+            field: 'runningTotal',
+            width: '50px'
+          }
         ]
       }
     },
-
     methods: {
       selectProductType: function (productType) {
+        this.productTypeSelected = productType
         this.productType = this[productType]
         this.$refs['chooseItem'].open()
       },
 
-      selectProduct: function (_product, _price) {
-        this.price = _price
+      selectProduct: function (item) {
+        this.product = item[0]
+        this.price = item[1]
         this.$refs['chooseQty'].open()
       },
 
+      selectPayType: function (val) {
+        alert(val)
+        alert(this.pp)
+      },
+
       finish: function () {
-        alert('finished')
+        this.tax = this.pp ? 0 : this.price * this.taxRate
+        this.total = (this.price + this.tax) * this.quantity
+        this.runningTotal += this.total
+        this.transactionTax = this.runningTotal * this.taxRate
+        this.transactionTotal = this.runningTotal + this.tax
+
+        if (Object.keys(this.newItems[0]).length === 0 && this.newItems[0].constructor === Object) this.newItems = []
+        this.newItems.push({
+          productType: this.productTypeSelected,
+          product: this.product,
+          quantity: this.quantity,
+          price: this.price,
+          tax: this.tax,
+          total: this.total,
+          runningTotal: this.runningTotal
+        })
       },
 
       saveAndAddNew: function () {
@@ -473,6 +516,7 @@
       }
     }
   }
+
 </script>
 
 <style>
