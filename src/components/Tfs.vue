@@ -488,17 +488,10 @@
       },
 
       selectPayType: function (val) {
-        alert(val)
-        alert(this.pp)
+        this.calculateTransactionTotals()
       },
 
       finish: function () {
-        this.tax = this.pp ? 0 : this.price * this.taxRate
-        this.total = (this.price + this.tax) * this.quantity
-        this.runningTotal += this.total
-        this.transactionTax = this.runningTotal * this.taxRate
-        this.transactionTotal = this.runningTotal + this.tax
-
         if (Object.keys(this.newItems[0]).length === 0 && this.newItems[0].constructor === Object) this.newItems = []
         this.newItems.push({
           productType: this.productTypeSelected,
@@ -509,6 +502,35 @@
           total: this.total,
           runningTotal: this.runningTotal
         })
+        // this.calculateTransactionTotals()
+      },
+
+      calculateTransactionTotals: function () {
+        let _runningTotal = 0
+        let _pp = this.pp
+        let _taxRate = this.taxRate
+        alert(_runningTotal + ' ' + _pp + ' ' + _taxRate)
+        let aaa = this.newItems.filter(function (item) {
+          _runningTotal += (item.price + item.price * item.tax) * item.quantity
+          alert(_pp ? 0 : _taxRate)
+          alert(JSON.stringify(item))
+          return {
+            productType: item.productTypeSelected,
+            product: item.product,
+            quantity: item.quantity,
+            price: 85,
+            tax: _pp ? 0 : _taxRate,
+            total: 111,
+            // total: (item.price + item.price * item.tax) * item.quantity,
+            runningTotal: _runningTotal,
+            a: 'ab'
+          }
+        })
+        this.runningTotal = _runningTotal
+        this.transactionTax = this.runningTotal * this.taxRate
+        this.transactionTotal = this.runningTotal + this.transactionTax
+        alert(JSON.stringify(aaa))
+        // alert(JSON.stringify(this.newItems))
       },
 
       saveAndAddNew: function () {
