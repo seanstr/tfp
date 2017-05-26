@@ -493,14 +493,15 @@
 
       finish: function () {
         if (Object.keys(this.newItems[0]).length === 0 && this.newItems[0].constructor === Object) this.newItems = []
+        let _tax = this.pp ? 0 : this.taxRate
         this.newItems.push({
           productType: this.productTypeSelected,
           product: this.product,
           quantity: this.quantity,
           price: this.price,
-          tax: this.tax,
-          total: this.total,
-          runningTotal: this.runningTotal
+          tax: _tax,
+          total: this.price + (this.price * _tax) * this.quantity,
+          runningTotal: this.runningTotal += (this.price + (this.price * _tax) * this.quantity)
         })
         // this.calculateTransactionTotals()
       },
@@ -510,7 +511,7 @@
         let _pp = this.pp
         let _taxRate = this.taxRate
         alert(_runningTotal + ' ' + _pp + ' ' + _taxRate)
-        let aaa = this.newItems.filter(function (item) {
+        let aaa = this.newItems.forEach(function (item) {
           _runningTotal += (item.price + item.price * item.tax) * item.quantity
           alert(_pp ? 0 : _taxRate)
           alert(JSON.stringify(item))
