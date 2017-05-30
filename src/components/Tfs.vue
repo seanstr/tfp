@@ -2,10 +2,6 @@
   <q-layout>
     <!-- Header -->
     <div slot="header" class="toolbar">
-      <!-- opens left-side drawer using its ref -->
-      <button class="hide-on-drawer-visible" @click="$refs.leftDrawer.open()">
-        <i>menu</i>
-      </button>
       <q-toolbar-title :padding="1">
         Tracy Fine Products
       </q-toolbar-title>
@@ -14,31 +10,8 @@
           <i>menu</i>
         </button>
     </div>
-
-    <!-- Navigation Tabs -->
-<!--     <q-tabs slot="navigation">
-      <q-tab icon="mail" route="/layout" exact replace>Mails</q-tab>
-      <q-tab icon="alarm" route="/layout/alarm" exact replace>Alarms</q-tab>
-      <q-tab icon="help" route="/layout/help" exact replace>Help</q-tab>
-    </q-tabs>
- -->
-<!--     <q-drawer ref="leftDrawer">
-       <div class="toolbar">
-        <q-toolbar-title>
-          Drawer Title
-        </q-toolbar-title>
-      </div>
-
-       <div class="list no-border platform-delimiter">
-        <q-drawer-link icon="mail" :to="{path: '/', exact: true}">
-          Link
-        </q-drawer-link>
-      </div>
-
-     </q-drawer>
- -->
-    <div class="full-width hidden">
-      <button class="primary full-width" @click="$('#stepper-section')">
+    <div class="full-width" v-if="page == 'transactions'">
+      <button class="primary full-width" v-on:click="page = 'new-transactions' ">
         Start New Transaction<i class="on-right">add</i>
       </button>
 
@@ -134,9 +107,24 @@
         </section>
       </section>
     </div>
+    <q-drawer ref="rightDrawer">
+      <div class="toolbar">
+        <q-toolbar-title>
+          Setup
+        </q-toolbar-title>
+      </div>
+      <div class="list no-border platform-delimiter">
+        <q-drawer-link icon="mail" :to="{path: '/', exact: true}">
+          Start the day
+        </q-drawer-link>
+        <q-drawer-link icon="mail" :to="{path: '/', exact: true}">
+          Product Data
+        </q-drawer-link>
+      </div>
+    </q-drawer>
 
-    <div id="stepper-section" class="list item-delimiter">
-      <q-collapsible id="chooseProduct" opened icon="explore" label="Select a Product" group="tx" ref="chooseProduct">
+    <div id="stepper-section" class="list item-delimiter"  v-if="page == 'new-transactions'">
+      <q-collapsible id="chooseProduct" opened icon="explore" :img="selectedProductTypeImage" :label="productTypeMessage" group="tx" ref="chooseProduct">
         <div>
           <div class="row wrap">
             <div class="width-4of12 auto">
@@ -149,7 +137,7 @@
           </div>
         </div>
       </q-collapsible>
-      <q-collapsible id="chooseItem" icon="perm_identity" label="Select an Item" group="tx" ref="chooseItem">
+      <q-collapsible id="chooseItem" icon="perm_identity" :img="selectedItemImage":label="itemMessage" group="tx" ref="chooseItem">
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
@@ -194,8 +182,15 @@
         <div class="card-content card-force-top-padding">
           <div class="row gutter wrap justify-stretch content-center">
             <q-data-table :data="newItems" :config="config" :columns="columns">
+              <template slot="selection" scope="selection">
+                <button class="primary clear" @click="changeMessage(selection)">
+                  <i>edit</i>
+                </button>
+                <button class="primary clear" @click="deleteRow(selection)">
+                  <i>delete</i>
+                </button>
+              </template>
             </q-data-table>
-
             <div class="width-1of1 auto">
               <div>
                 <label>Type:</label>
@@ -207,10 +202,18 @@
                 <label>Tx Price:</label>
                 <input v-model="runningTotal" placeholder="Total">
                 +
-                <input v-model="tax" placeholder="Tax">
+                <input v-model="transactionTax" placeholder="Tax">
                 =
-                <input v-model="total" placeholder="Pay">
+                <input v-model="transactionTotal" placeholder="Pay">
               </div>
+            </div>
+          </div>
+          <div class="row wrap">
+            <div class="width-1of12 auto">
+                <button class="primary" @click="newTransaction()">
+                    Start New Transaction<i class="on-right">add</i>
+                </button>
+                <button class="primary" @click="transactionList()">Back to Transaction List</button>
             </div>
           </div>
         </div>
@@ -226,6 +229,13 @@
         // settings
         taxRate: 0.05,
 
+        // state values
+        page: 'transactions',
+        selectedProductTypeImage: '',
+        productTypeMessage: 'Select a Product',
+        selectedItemImage: '',
+        itemMessage: 'Select an Item',
+
         // item values
         quantity: 1,
         price: 0,
@@ -235,6 +245,7 @@
         // transaction values
         runningTotal: 0,
         taxTotal: 0,
+        transactionTax: 0,
         transactionTotal: 0,
         pp: false,
         productTypeSelected: '',
@@ -409,16 +420,17 @@
           ['large', 295, 'peppermills/peppermill.png']
         ],
         config: {
-          rowHeight: '50px',  // [REQUIRED] Set the row height
+          rowHeight: '30px',  // [REQUIRED] Set the row height
           title: 'Transaction Items',
           noHeader: false,
           refresh: true,
           columnPicker: false,
-          leftStickyColumns: 0,
+          leftStickyColumns: 1,
           rightStickyColumns: 0,
           bodyStyle: {
             maxHeight: '500px'
           },
+          selection: 'single',
           messages: {
             noData: '<i>warning</i> No data available to show.',
             noDataAfterFiltering: '<i>warning</i> No results. Please refine your search terms.'
@@ -478,12 +490,16 @@
       selectProductType: function (productType) {
         this.productTypeSelected = productType
         this.productType = this[productType]
+        this.selectedProductTypeImage = './statics/' + this.productTypes[0][1]
+        this.productTypeMessage = productType + ' selected'
         this.$refs['chooseItem'].open()
       },
 
       selectProduct: function (item) {
         this.product = item[0]
         this.price = item[1]
+        this.selectedItemImage = './statics/' + item[2]
+        this.itemMessage = this.product + ' selected'
         this.$refs['chooseQty'].open()
       },
 
@@ -503,39 +519,41 @@
           total: this.price + (this.price * _tax) * this.quantity,
           runningTotal: this.runningTotal += (this.price + (this.price * _tax) * this.quantity)
         })
-        // this.calculateTransactionTotals()
+        this.calculateTransactionTotals()
       },
 
       calculateTransactionTotals: function () {
+        let tempArr = []
         let _runningTotal = 0
-        let _pp = this.pp
-        let _taxRate = this.taxRate
-        alert(_runningTotal + ' ' + _pp + ' ' + _taxRate)
-        let aaa = this.newItems.forEach(function (item) {
-          _runningTotal += (item.price + item.price * item.tax) * item.quantity
-          alert(_pp ? 0 : _taxRate)
-          alert(JSON.stringify(item))
-          return {
-            productType: item.productTypeSelected,
+        let _runningTotalTax = 0
+        let _tax = this.pp ? 0 : this.taxRate
+
+        this.newItems.forEach(function (item) {
+          _runningTotal += item.price * item.quantity
+          _runningTotalTax += (item.price * _tax) * item.quantity
+          tempArr.push({
+            productType: item.productType,
             product: item.product,
             quantity: item.quantity,
-            price: 85,
-            tax: _pp ? 0 : _taxRate,
-            total: 111,
-            // total: (item.price + item.price * item.tax) * item.quantity,
-            runningTotal: _runningTotal,
-            a: 'ab'
-          }
+            price: item.price,
+            tax: _tax,
+            total: (item.price + (item.price * _tax)) * item.quantity,
+            runningTotal: _runningTotal + _runningTotalTax
+          })
         })
+        this.newItems = tempArr
         this.runningTotal = _runningTotal
-        this.transactionTax = this.runningTotal * this.taxRate
+        this.transactionTax = _runningTotalTax
         this.transactionTotal = this.runningTotal + this.transactionTax
-        alert(JSON.stringify(aaa))
-        // alert(JSON.stringify(this.newItems))
       },
 
       saveAndAddNew: function () {
-        alert('saveAndAddNew')
+        this.finish()
+        this.$refs['chooseProduct'].open()
+      },
+
+      transactionList: function () {
+        this.page = 'transactions'
       }
     }
   }
