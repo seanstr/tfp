@@ -223,6 +223,8 @@
 </template>
 
 <script>
+  import tfpData from "./Data.js"
+
   export default {
     data () {
       return {
@@ -253,172 +255,6 @@
         product: '',
 
         // transaction arrays
-        transactions: [],
-        // newItems: [{productType: 'pens', product: '30 cal', quantity: 1, price: 75, tax: 0, total: 75, runningTotal: 75}],
-        newItems: [{}],
-        // newItems: [],
-
-        // data arrays
-        productTypes: [
-          ['pens', 'pen.png'],
-          ['peppermills', 'peppermill.png'],
-          ['pizzacutters', 'pizzacutter.png'],
-          ['icecreamscoops', 'icecreamscoop.png'],
-          ['seamrippers', 'seamripper.png'],
-          ['corkscrews', 'corkscrew.png'],
-          ['shavingkits', 'shavingkit.jpg'],
-          ['lamps', 'steampunklamp.jpg'],
-          ['clocks', 'clocks.jpg'],
-          ['maps', 'maps.jpg']
-        ],
-        pens: [
-          ['30/30 lever', 75, 'pens/lever.jpg'],
-          ['30 cal', 75, 'pens/30cal.png'],
-          ['50 cal', 55, 'pens/peppermill.png'],
-          ['celtic', 95, 'pens/celtic.jpg'],
-          ['cowboy', 85, 'pens/cowboy.jpg'],
-          ['crystal', 45, 'pens/princess.jpg'],
-          ['dragon', 95, 'pens/dragon.jpg'],
-          ['firefighter', 120, 'pens/firefighter.jpg'],
-          ['flyfish', 75, 'pens/flyfish.jpg'],
-          ['harley', 95, 'pens/harley.jpg'],
-          ['revolver', 95, 'pens/revolver.jpg'],
-          ['shotgun', 95, 'pens/shotgun.jpg'],
-          ['skeletonkey', 85, 'pens/peppermill.jpg'],
-          ['skull', 85, 'pens/skull.jpg'],
-          ['steampunk', 95, 'pens/steampunk.jpg'],
-          ['stylus', 55, 'pens/stylus.jpg'],
-          ['tech', 55, 'pens/tech.jpg'],
-          ['victoriacross', 55, 'pens/victoriacross.jpg']
-        ],
-        penwood: [
-          'antler', 'cocobolo', 'mahogany', 'maple', 'cherry', 'dark', 'light', 'red', 'other'
-        ],
-        penmetal: [
-          'brassplain', 'brassfancy', 'copper', 'gunmetal', 'chrome', 'pewter', 'n/a'
-        ],
-        'peppermills': [
-          ['b_w_ebony', 150, 'peppermills/peppermill.png'],
-          ['bubinga', 85, 'peppermills/peppermill.png'],
-          ['burnt cedar', 75, 'peppermills/peppermill.png'],
-          ['burmese redwodd', 85, 'peppermills/peppermill.png'],
-          ['burnt catalpa', 75, 'peppermills/peppermill.png'],
-          ['burnt elm', 75, 'peppermills/dragon.png'],
-          ['catalpa', 75, 'peppermills/peppermill.png'],
-          ['cedar', 75, 'peppermills/peppermill.png'],
-          ['cherry', 85, 'peppermills/peppermill.png'],
-          ['elm', 75, 'peppermills/peppermill.png'],
-          ['indian redwood', 85, 'peppermills/peppermill.png'],
-          ['laminatedblue', 85, 'peppermills/peppermill.png'],
-          ['laminatedgreen', 85, 'peppermills/peppermill.png'],
-          ['laminatedred', 85, 'peppermills/peppermill.png'],
-          ['laminatedsilverblue', 85, 'peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 85, 'peppermills/peppermill.png'],
-          ['laminatedsilverred', 85, 'peppermills/peppermill.png'],
-          ['mahogany', 85, 'peppermills/peppermill.png'],
-          ['oak', 85, 'peppermills/shotgun.png'],
-          ['padauk', 85, 'peppermills/peppermill.png'],
-          ['spalted maple', 85, 'peppermills/peppermill.png'],
-          ['spalted elm', 85, 'peppermills/peppermill.png'],
-          ['walnut', 85, 'peppermills/peppermill.png']
-        ],
-        pizzacutters: [
-          ['burmese redwodd', 60, 'pizzacutters/peppermill.png'],
-          ['catalpa', 60, 'pizzacutters/peppermill.png'],
-          ['cedar', 60, 'pizzacutters/peppermill.png'],
-          ['cherry', 60, 'pizzacutters/peppermill.png'],
-          ['elm', 60, 'pizzacutters/peppermill.png'],
-          ['indian redwood', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedblue', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedgreen', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedred', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedsilverblue', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedsilvergreen', 60, 'pizzacutters/peppermill.png'],
-          ['laminatedsilverred', 60, 'pizzacutters/peppermill.png'],
-          ['mahogany', 60, 'pizzacutters/peppermill.png'],
-          ['oak', 60, 'pizzacutters/shotgun.png'],
-          ['padauk', 60, 'pizzacutters/peppermill.png'],
-          ['spalted maple', 60, 'pizzacutters/peppermill.png'],
-          ['spalted elm', 60, 'pizzacutters/peppermill.png'],
-          ['walnut', 60, 'pizzacutters/peppermill.png']
-        ],
-        icecreamscoops: [
-          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
-          ['catalpa', 60, 'peppermills/peppermill.png'],
-          ['cedar', 60, 'peppermills/peppermill.png'],
-          ['cherry', 60, 'peppermills/peppermill.png'],
-          ['elm', 60, 'peppermills/peppermill.png'],
-          ['indian redwood', 60, 'peppermills/peppermill.png'],
-          ['laminatedblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedred', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
-          ['mahogany', 60, 'peppermills/peppermill.png'],
-          ['oak', 60, 'peppermills/shotgun.png'],
-          ['padauk', 60, 'peppermills/peppermill.png'],
-          ['spalted maple', 60, 'peppermills/peppermill.png'],
-          ['spalted elm', 60, 'peppermills/peppermill.png'],
-          ['walnut', 60, 'peppermills/peppermill.png']
-        ],
-        seamrippers: [
-          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
-          ['catalpa', 60, 'peppermills/peppermill.png'],
-          ['cedar', 60, 'peppermills/peppermill.png'],
-          ['cherry', 60, 'peppermills/peppermill.png'],
-          ['elm', 60, 'peppermills/peppermill.png'],
-          ['indian redwood', 60, 'peppermills/peppermill.png'],
-          ['laminatedblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedred', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
-          ['mahogany', 60, 'peppermills/peppermill.png'],
-          ['oak', 60, 'peppermills/shotgun.png'],
-          ['padauk', 60, 'peppermills/peppermill.png'],
-          ['spalted maple', 60, 'peppermills/peppermill.png'],
-          ['spalted elm', 60, 'peppermills/peppermill.png'],
-          ['walnut', 60, 'peppermills/peppermill.png']
-        ],
-        corkscrews: [
-          ['burmese redwodd', 60, 'peppermills/peppermill.png'],
-          ['catalpa', 60, 'peppermills/peppermill.png'],
-          ['cedar', 60, 'peppermills/peppermill.png'],
-          ['cherry', 60, 'peppermills/peppermill.png'],
-          ['elm', 60, 'peppermills/peppermill.png'],
-          ['indian redwood', 60, 'peppermills/peppermill.png'],
-          ['laminatedblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedgreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedred', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverblue', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilvergreen', 60, 'peppermills/peppermill.png'],
-          ['laminatedsilverred', 60, 'peppermills/peppermill.png'],
-          ['mahogany', 60, 'peppermills/peppermill.png'],
-          ['oak', 60, 'peppermills/shotgun.png'],
-          ['padauk', 60, 'peppermills/peppermill.png'],
-          ['spalted maple', 60, 'peppermills/peppermill.png'],
-          ['spalted elm', 60, 'peppermills/peppermill.png'],
-          ['walnut', 60, 'peppermills/peppermill.png']
-        ],
-        shavingkits: [
-          ['cocobolo', 235, 'peppermills/peppermill.png']
-        ],
-        lamps: [
-          ['steampunk', 235, 'peppermills/peppermill.png'],
-          ['tripledome', 235, 'peppermills/peppermill.png'],
-          ['dome', 235, 'peppermills/peppermill.png'],
-          ['edison', 235, 'peppermills/peppermill.png']
-        ],
-        clocks: [
-          ['dome', 235, 'peppermills/peppermill.png']
-        ],
-        maps: [
-          ['small', 185, 'peppermills/peppermill.png'],
-          ['medium', 235, 'peppermills/peppermill.png'],
-          ['large', 295, 'peppermills/peppermill.png']
-        ],
         config: {
           rowHeight: '30px',  // [REQUIRED] Set the row height
           title: 'Transaction Items',
@@ -487,6 +323,10 @@
       }
     },
     methods: {
+      begin: function () {
+        return tfpData
+      },
+
       selectProductType: function (productType) {
         this.productTypeSelected = productType
         this.productType = this[productType]
