@@ -1,6 +1,5 @@
-
-export default function () {        
-  productTypes = {
+export default function () {
+  let productTypes = {
     1: { id: 1, name: 'pens', desc: 'Pen', img: 'pen.png'},
     2: { id: 2, name: 'peppermills', desc: 'Peppermill', img: 'peppermill.png'},
     3: { id: 3, name: 'pizzacutters', desc: 'Pizza Cutter', img: 'pizzacutter.png'},
@@ -13,7 +12,7 @@ export default function () {
     10: { id: 10, name: 'maps', desc: 'Map', img: 'maps.jpg'}
   },
 
-  productItems = {
+  let productItems = {
   1: { id: 1, productTypeId: 1, name: '30/30 lever', desc: '30/30 lever', img: 'pens/lever.jpg', price: '75' },
   2: { id: 2, productTypeId: 1, name: '30 cal', desc: '30 cal', img: 'pens/30cal.png', price: '75' },
   3: { id: 3, productTypeId: 1, name: '50 cal', desc: '50 cal', img: 'pens/peppermill.png', price: '55' },
@@ -184,4 +183,4 @@ export default function () {
   dayInfoPersons = {
     1: { id: 1, dayInfoId: 1, personId: 1},
   }
-;
+};

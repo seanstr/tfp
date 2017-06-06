@@ -11,7 +11,7 @@
         </button>
     </div>
     <div class="full-width" v-if="page == 'transactions'">
-      <button class="primary full-width" v-on:click="page = 'new-transactions' ">
+      <button class="primary full-width" @click="page = 'new-transactions' ">
         Start New Transaction<i class="on-right">add</i>
       </button>
 
@@ -223,7 +223,7 @@
 </template>
 
 <script>
-  import tfpData from "./Data.js"
+  import TfpData from './DataSetup.vue'
 
   export default {
     data () {
@@ -323,10 +323,6 @@
       }
     },
     methods: {
-      begin: function () {
-        return tfpData
-      },
-
       selectProductType: function (productType) {
         this.productTypeSelected = productType
         this.productType = this[productType]
@@ -395,6 +391,10 @@
       transactionList: function () {
         this.page = 'transactions'
       }
+    },
+
+    components: {
+      TfpData
     }
   }
 
