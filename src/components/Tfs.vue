@@ -223,7 +223,7 @@
 </template>
 
 <script>
-  import TfpData from './DataSetup.vue'
+  import TfpData from './DataSetup'
 
   export default {
     data () {
@@ -253,6 +253,9 @@
         productTypeSelected: '',
         productType: '',
         product: '',
+
+        productTypes: TfpData,
+        newItems: '',
 
         // transaction arrays
         config: {
