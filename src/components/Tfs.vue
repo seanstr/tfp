@@ -141,10 +141,10 @@
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
-              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item)" v-for="item in selectedProductTypeItems">
-                <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
+              <button :id="'btn'+item.id" class="tx-img-button" @click="selectProduct(item)" v-for="item in selectedProductTypeItems">
+                <img :src= "'./statics/'+item.img" :alt="item.desc" style="width: 128px" />
                 <br/>
-                <span class="label">{{item[0]}}</span> 
+                <span class="label">{{item.desc}}</span> 
               </button>
             </div>
           </div>
@@ -329,16 +329,14 @@
     },
     computed: {
       selectedProductTypeItems () {
-        if (this.productTypeSelected == null) return null
+        if (this.productTypeSelected === '') return null
+        let productTypeSelected = this.productTypeSelected
         let obj = this.tfpData.productItems
-        alert(JSON.stringify(obj[25].productTypeId))
-        alert(JSON.stringify(Object.keys(obj)))
-        alert(this.productTypeSelected.id)
+        let filtered = {}
         Object.keys(obj).forEach(function (key) {
-          alert(obj[key].productTypeId === this.productTypeSelected.id)
-          if (obj[key].productTypeId === this.productTypeSelected.id) alert(key + ' ' + JSON.stringify(obj[key]))
+          if (obj[key].productTypeId === productTypeSelected.id) filtered[key] = obj[key]
         })
-        return obj.filter(function (item) { return item.productTypeId === this.productTypeSelected.id })
+        return filtered
       }
     },
     methods: {
@@ -347,14 +345,13 @@
         this.productType = productType
         this.selectedProductTypeImage = './statics/' + productType.img
         this.productTypeMessage = productType.name + ' selected'
-        alert(this.productTypeMessage)
         this.$refs['chooseItem'].open()
       },
 
       selectProduct: function (item) {
-        this.product = item[0]
-        this.price = item[1]
-        this.selectedItemImage = './statics/' + item[2]
+        this.product = item.name
+        this.price = item.price
+        this.selectedItemImage = './statics/' + item.img
         this.itemMessage = this.product + ' selected'
         this.$refs['chooseQty'].open()
       },
@@ -411,10 +408,6 @@
       transactionList: function () {
         this.page = 'transactions'
       }
-    },
-
-    components: {
-      TfpData
     }
   }
 
