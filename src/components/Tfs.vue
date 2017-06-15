@@ -128,20 +128,20 @@
         <div>
           <div class="row wrap">
             <div class="width-4of12 auto">
-              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProductType(item[0])" v-for="item in productTypes">
-                <img :src= "'./statics/'+item[1]" :alt="item[0]" style="width: 128px" />
+              <button :id="'btn'+item.id" class="tx-img-button" @click="selectProductType(item)" v-for="item in tfpData.productTypes">
+                <img :src= "'./statics/'+item.img" :title="item.name" style="width: 128px" />
                 <br/>
-                <span class="label">{{item[0]}}</span> 
+                <span class="label">{{item.name}}</span> 
               </button>
             </div>
           </div>
         </div>
       </q-collapsible>
-      <q-collapsible id="chooseItem" icon="perm_identity" :img="selectedItemImage":label="itemMessage" group="tx" ref="chooseItem">
+      <q-collapsible id="chooseItem" icon="perm_identity" :img="selectedItemImage" :label="itemMessage" group="tx" ref="chooseItem">
         <div>
           <div class="row wrap">
             <div class="width-1of12 auto">
-              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item)" v-for="item in productType">
+              <button :id="'btn'+item[0]" class="tx-img-button" @click="selectProduct(item)" v-for="item in selectedProductTypeItems">
                 <img :src= "'./statics/'+item[2]" :alt="item[0]" style="width: 128px" />
                 <br/>
                 <span class="label">{{item[0]}}</span> 
@@ -223,11 +223,13 @@
 </template>
 
 <script>
-  import TfpData from './DataSetup'
+  import TfpData from '../TfpData.json'
 
   export default {
     data () {
       return {
+        tfpData: TfpData,
+
         // settings
         taxRate: 0.05,
 
@@ -325,12 +327,27 @@
         ]
       }
     },
+    computed: {
+      selectedProductTypeItems () {
+        if (this.productTypeSelected == null) return null
+        let obj = this.tfpData.productItems
+        alert(JSON.stringify(obj[25].productTypeId))
+        alert(JSON.stringify(Object.keys(obj)))
+        alert(this.productTypeSelected.id)
+        Object.keys(obj).forEach(function (key) {
+          alert(obj[key].productTypeId === this.productTypeSelected.id)
+          if (obj[key].productTypeId === this.productTypeSelected.id) alert(key + ' ' + JSON.stringify(obj[key]))
+        })
+        return obj.filter(function (item) { return item.productTypeId === this.productTypeSelected.id })
+      }
+    },
     methods: {
       selectProductType: function (productType) {
         this.productTypeSelected = productType
-        this.productType = this[productType]
-        this.selectedProductTypeImage = './statics/' + this.productTypes[0][1]
-        this.productTypeMessage = productType + ' selected'
+        this.productType = productType
+        this.selectedProductTypeImage = './statics/' + productType.img
+        this.productTypeMessage = productType.name + ' selected'
+        alert(this.productTypeMessage)
         this.$refs['chooseItem'].open()
       },
 

@@ -1,5 +1,9 @@
-<script>
-  export default {
+  Vue.component('tfpData', {
+
+  //export default {
+  //  components: { data },
+
+    props: ['tfpData'],
     data () {
       return {
         productTypes: {
@@ -189,4 +193,4 @@
       }
     }
   }
-</script>
+})
