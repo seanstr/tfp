@@ -26,9 +26,9 @@
       </section>  
 
       <section id="transactions">
-        <section class="card" v-for="tx in tfpData.transactions">
+        <section class="card" v-for="tx in tfpData.transactions" v-bind:currTx="tx" :key="tx.id">
           <div :id="'btn'+tx.id" class="card-content">
-            <div class="row tx-summary-title">
+            <div class="row tx-summary-title text-italic light-paragraph item-delimiter">
               <div class="width-1of5">Tx#</div>
               <div class="width-1of3">Time</div>
               <div class="width-2of4">Sum</div>
@@ -38,13 +38,13 @@
             </div>
             <div class="row tx-summary">
               <div class="width-1of5">{{tx.id}}</div>
-              <div class="width-1of3">{{tx.txTime}}</div>
+              <div class="width-1of3">{{('0' + new Date(tx.txTime).getHours()).slice(-2) + ':' + ('0' + new Date(tx.txTime).getMinutes()).slice(-2)}}</div>
               <div class="row width-2of4"><div class="auto">{{tx.total}}</div></div>
               <div class="row width-2of4"><div class="auto">{{tx.tax}}</div></div>
               <div class="row width-2of4"><div class="auto">{{tx.total + tx.tax}}</div></div>
               <div class="auto">{{tx.pp_or_pl}}</div>
             </div>
-            <div class="row tx-rows-title">
+            <div class="row tx-rows-title text-italic" style="background-color: #dadada;">
               <div class="offset-1of5"></div>
               <div class="width-1of3">Product</div>
               <div class="width-2of4">Description</div>
@@ -52,12 +52,10 @@
               <div class="width-2of4">Price</div>
               <div class="auto">Tax</div>
             </div>
-            <div class="row" v-for="item in tfpData.transactionItems">
+            <div class="row tx-row" v-for="item in selectedTransactionItems(tx)">
               <div class="offset-1of5"></div>
-              <div class="width-1of3">{{item.productTypeId}}</div>
-              <div class="width-2of4">{{item.productItemId}}</div>
-              <!-- <div class="width-1of3">{{tfpData.productTypes[item.productTypeId].desc}}</div>
-              <div class="width-2of4">{{tfpData.productItems[item.productItemId].desc}}</div> -->
+              <div class="width-1of3">{{item.productTypeDesc}}</div>
+              <div class="width-2of4">{{item.productItemDesc}}</div>
               <div class="width-2of4">{{item.qty}}</div>
               <div class="width-2of4">{{item.price}}</div>
               <div class="auto">{{item.tax}}</div>
@@ -83,7 +81,7 @@
       </div>
     </q-drawer>
 
-    <div id="stepper-section" class="list item-delimiter"  v-if="page == 'new-transactions'">
+    <div id="stepper-section" class="list" style="overflow: scroll;" v-if="page == 'new-transactions'">
       <q-collapsible id="chooseProduct" opened icon="explore" :img="selectedProductTypeImage" :label="productTypeMessage" group="tx" ref="chooseProduct">
         <div>
           <div class="row wrap">
@@ -116,7 +114,7 @@
             <div class="width-1of12 auto">
               <div>
                 <label>Quantity:</label>
-                <q-numeric v-model="quantity" :min="1" :max="99"></q-numeric>
+                <q-numeric v-model="qty" :min="1" :max="99"></q-numeric>
               </div>
               <div>
                 <label>Price:</label>
@@ -126,8 +124,8 @@
           </div>
           <div class="row wrap">
             <div class="width-1of12 auto">
-                <button class="primary" @click="finish()">Finish and Pay</button>
-                <button class="primary" @click="saveAndAddNew()">Add Another Item</button>
+                <button class="primary" style="width: 250px; margin-bottom: 5px;" @click="finish()">Finish and Pay</button>
+                <button class="primary" style="width: 250px; margin-bottom: 5px;" @click="saveAndAddNew()">Add Another Item</button>
             </div>
           </div>
         </div>
@@ -141,7 +139,7 @@
         </div>
         <div class="card-content card-force-top-padding">
           <div class="row gutter wrap justify-stretch content-center">
-            <q-data-table :data="newItems" :config="config" :columns="columns">
+            <q-data-table class="width-1of1 auto" style="border: none;" :data="newItems" :config="config" :columns="columns">
               <template slot="selection" scope="selection">
                 <button class="primary clear" @click="changeMessage(selection)">
                   <i>edit</i>
@@ -152,28 +150,36 @@
               </template>
             </q-data-table>
             <div class="width-1of1 auto">
-              <div>
-                <label>Type:</label>
-                <label>pl</label>
-                <q-toggle v-model="pp" @input="selectPayType"></q-toggle>
-                <label>pp</label>
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="width-1of5">Type:</label>
+                <div class="auto tx-switch">
+                  <label class="auto">pl</label>
+                  <q-toggle class="auto" v-model="pp" @input="selectPayType"></q-toggle>
+                  <label class="auto">pp</label>
+                </div>
               </div>
-              <div>
-                <label>Tx Price:</label>
-                <input v-model="runningTotal" placeholder="Total">
-                +
-                <input v-model="transactionTax" placeholder="Tax">
-                =
-                <input v-model="transactionTotal" placeholder="Pay">
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="width-1of5">Tx Price:</label>
+                <input class="auto" style="background-color: #cacaca;" v-model="runningTotal" placeholder="Total">
+              </div>
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="row width-1of5">+</label>
+                <input class="auto" style="background-color: #cacaca;" v-model="transactionTax" placeholder="Tax">
+              </div>
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="row width-1of5">=</label>
+                <input class="auto" style="background-color: #cacaca;" v-model="transactionTotal" placeholder="Pay">
               </div>
             </div>
           </div>
           <div class="row wrap">
-            <div class="width-1of12 auto">
-                <button class="primary" @click="startNewTransaction()">
-                    Start New Transaction<i class="on-right">add</i>
+            <div class="width-1of1">
+                <button class="primary width-1of1" style="width: 250px; margin-bottom: 5px;" @click="startNewTransaction()">
+                  Start New Transaction<i class="on-right">add</i>
                 </button>
-                <button class="primary" @click="transactionList()">Back to Transaction List</button>
+                <button class="primary width-1of1" style="width: 250px; margin-bottom: 5px;" @click="transactionList()">
+                  Back to Transaction List
+                </button>
             </div>
           </div>
         </div>
@@ -201,7 +207,7 @@
         itemMessage: 'Select an Item',
 
         // item values
-        quantity: 1,
+        qty: 1,
         price: 0,
         tax: 0,
         total: 0,
@@ -215,9 +221,10 @@
         productTypeSelected: '',
         productType: '',
         product: '',
+        currTx: {},
 
         productTypes: TfpData,
-        txId: 2,
+        txId: 1,
         newItems: [],
         newTransaction: {},
 
@@ -253,17 +260,17 @@
         columns: [
           {
             label: 'Type', // [REQUIRED] Column name
-            field: 'productType', // [REQUIRED] Row property name
+            field: 'productTypeDesc', // [REQUIRED] Row property name
             width: '50px' // [REQUIRED] Column width
           },
           {
             label: 'Product',
-            field: 'product',
+            field: 'productItemDesc',
             width: '100px'
           },
           {
             label: 'Qty',
-            field: 'quantity',
+            field: 'qty',
             width: '20px'
           },
           {
@@ -302,10 +309,20 @@
       }
     },
     methods: {
+      selectedTransactionItems (tx) {
+        if (this.tfpData.transactions === '') return null
+        let _obj = this.tfpData.transactionItems
+        let _filtered = {}
+        Object.keys(_obj).forEach(function (key) {
+          if (_obj[key].transactionId === tx.id) _filtered[key] = _obj[key]
+        })
+        // alert(JSON.stringify(_filtered, null, 4))
+        return _filtered
+      },
+
       startNewTransaction: function () {
         this.page = 'new-transactions'
-        let _txId = this.txId++
-        alert('_txId=' + _txId)
+        let _txId = this.txId += 1
         this.newTransaction = {
           id: _txId,
           txNumber: _txId,
@@ -317,6 +334,7 @@
           total: 0,
           tax: 0
         }
+        // alert(JSON.stringify(this.newTransaction, null, 4))
       },
 
       selectProductType: function (productType) {
@@ -342,13 +360,15 @@
       finish: function () {
         let _tax = this.pp ? 0 : this.taxRate
         this.newItems.push({
-          productType: this.productTypeSelected.name,
-          product: this.product.desc,
-          quantity: this.quantity,
+          productTypeId: this.productTypeSelected.id,
+          productTypeDesc: this.productTypeSelected.desc,
+          productItemId: this.product.id,
+          productItemDesc: this.product.desc,
+          qty: this.qty,
           price: this.price,
           tax: _tax,
-          total: this.price + (this.price * _tax) * this.quantity,
-          runningTotal: this.runningTotal += (this.price + (this.price * _tax) * this.quantity)
+          total: (this.price + (this.price * _tax)) * this.qty,
+          runningTotal: this.runningTotal += (this.price + (this.price * _tax)) * this.qty
         })
         this.calculateTransactionTotals()
         this.saveTransaction()
@@ -361,15 +381,17 @@
         let _tax = this.pp ? 0 : this.taxRate
 
         this.newItems.forEach(function (item) {
-          _runningTotal += item.price * item.quantity
-          _runningTotalTax += (item.price * _tax) * item.quantity
+          _runningTotal += item.price * item.qty
+          _runningTotalTax += (item.price * _tax) * item.qty
           tempArr.push({
-            productType: item.productType,
-            product: item.product,
-            quantity: item.quantity,
+            productTypeId: item.productTypeId,
+            productTypeDesc: item.productTypeDesc,
+            productItemId: item.productItemId,
+            productItemDesc: item.productItemDesc,
+            qty: item.qty,
             price: item.price,
-            tax: _tax,
-            total: (item.price + (item.price * _tax)) * item.quantity,
+            tax: item.price * _tax * item.qty,
+            total: (item.price + (item.price * _tax)) * item.qty,
             runningTotal: _runningTotal + _runningTotalTax
           })
         })
@@ -377,11 +399,12 @@
         this.runningTotal = _runningTotal
         this.transactionTax = _runningTotalTax
         this.transactionTotal = this.runningTotal + this.transactionTax
+        // alert(JSON.stringify(this.newItems))
       },
 
       saveTransaction: function () {
         let _tfpData = this.tfpData
-        this.newTransaction.pp_or_pl = this.pp
+        this.newTransaction.pp_or_pl = this.pp ? 'pl' : 'pp'
         this.newTransaction.total = this.transactionTotal
         this.newTransaction.tax = this.transactionTax
         _tfpData.transactions[this.newTransaction.id] = this.newTransaction
@@ -390,21 +413,19 @@
         let _id = 3
         this.newItems.forEach(function (item) {
           let _tmp = {
-            id: _id += 1,
-            transactionid: _newTx.txId,
-            productTypeId: item.productType,
-            productItemId: item.product,
-            qty: item.quantity,
+            id: _id++,
+            transactionId: _newTx.id,
+            productTypeId: item.productTypeId,
+            productTypeDesc: item.productTypeDesc,
+            productItemId: item.productItemId,
+            productItemDesc: item.productItemDesc,
+            qty: item.qty,
             price: item.price,
             tax: item.tax
           }
           _tfpData.transactionItems[_tmp.id] = _tmp
-          alert(JSON.stringify(_tfpData.transactionItems))
         })
-
         this.tfpData = _tfpData
-        alert(JSON.stringify(this.tfpData.transactions))
-        alert(JSON.stringify(this.tfpData.transactionItems))
       },
 
       saveAndAddNew: function () {
