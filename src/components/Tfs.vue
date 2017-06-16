@@ -11,7 +11,7 @@
         </button>
     </div>
     <div class="full-width" v-if="page == 'transactions'">
-      <button class="primary full-width" @click="page = 'new-transactions' ">
+      <button class="primary full-width" @click="startNewTransaction()">
         Start New Transaction<i class="on-right">add</i>
       </button>
 
@@ -26,87 +26,47 @@
       </section>  
 
       <section id="transactions">
-        <section class="card">
-          <div class="card-content">
+        <section class="card" v-for="tx in tfpData.transactions">
+          <div :id="'btn'+tx.id" class="card-content">
             <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
+              <div class="width-1of5">Tx#</div>
+              <div class="width-1of3">Time</div>
+              <div class="width-2of4">Sum</div>
+              <div class="width-2of4">Tax</div>
+              <div class="width-2of4">Total</div>
+              <div class="auto">TxType</div>
             </div>
             <div class="row tx-summary">
-              <div class="width-1of5">00010</div>
-              <div class="width-1of3">14:22</div>
-              <div class="row width-2of4">
-                <div class="auto">85</div>
-              </div>
-              <div class="auto">pp</div>
+              <div class="width-1of5">{{tx.id}}</div>
+              <div class="width-1of3">{{tx.txTime}}</div>
+              <div class="row width-2of4"><div class="auto">{{tx.total}}</div></div>
+              <div class="row width-2of4"><div class="auto">{{tx.tax}}</div></div>
+              <div class="row width-2of4"><div class="auto">{{tx.total + tx.tax}}</div></div>
+              <div class="auto">{{tx.pp_or_pl}}</div>
             </div>
             <div class="row tx-rows-title">
-              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
+              <div class="offset-1of5"></div>
+              <div class="width-1of3">Product</div>
+              <div class="width-2of4">Description</div>
+              <div class="width-2of4">Qty</div>
+              <div class="width-2of4">Price</div>
+              <div class="auto">Tax</div>
             </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Green</div><div class="auto">85</div>
-            </div>
-          </div>
-        </section>
-        <section class="card">
-          <div class="card-content">
-            <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
-            </div>
-            <div class="row tx-summary">
-              <div class="width-1of5">00009</div>
-              <div class="width-1of3">14:00</div>
-              <div class="row width-2of4">
-                <div class="auto">170</div><div class="auto">8.5</div><div class="auto">185.5</div>
-              </div>
-              <div class="auto">pl</div>
-            </div>
-            <div class="row tx-rows-title">
-              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Red</div><div class="auto">85</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Blue</div><div class="auto">85</div>
-            </div>
-          </div>
-        </section>
-      </section>
-        <section class="card">
-          <div class="card-content">
-            <div class="row tx-summary-title">
-              <div class="width-1of5">Tx#</div><div class="width-1of3">Time</div><div class="width-2of4">TxTotal</div><div class="auto">TxType</div>
-            </div>
-            <div class="row tx-summary">
-              <div class="width-1of5">00008</div>
-              <div class="width-1of3">13:00</div>
-              <div class="row width-2of4">
-                <div class="auto">340</div>
-              </div>
-              <div class="auto">pp</div>
-            </div>
-            <div class="row tx-rows-title">
-              <div class="offset-1of5"></div><div class="width-1of3">Product</div><div class="width-2of4">Description</div><div class="auto">Price</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">pen</div><div class="width-2of4">Winchester Lever Action</div><div class="auto">75</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">pen</div><div class="width-2of4">Dragon</div><div class="auto">95</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">pen case</div><div class="width-2of4">Gun case</div><div class="auto">20</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Spalted Maple</div><div class="auto">85</div>
-            </div>
-            <div class="row">
-              <div class="offset-1of5"></div><div class="width-1of3">peppermill</div><div class="width-2of4">Burnt Birch</div><div class="auto">75</div>
+            <div class="row" v-for="item in tfpData.transactionItems">
+              <div class="offset-1of5"></div>
+              <div class="width-1of3">{{item.productTypeId}}</div>
+              <div class="width-2of4">{{item.productItemId}}</div>
+              <!-- <div class="width-1of3">{{tfpData.productTypes[item.productTypeId].desc}}</div>
+              <div class="width-2of4">{{tfpData.productItems[item.productItemId].desc}}</div> -->
+              <div class="width-2of4">{{item.qty}}</div>
+              <div class="width-2of4">{{item.price}}</div>
+              <div class="auto">{{item.tax}}</div>
             </div>
           </div>
         </section>
       </section>
     </div>
+
     <q-drawer ref="rightDrawer">
       <div class="toolbar">
         <q-toolbar-title>
@@ -210,7 +170,7 @@
           </div>
           <div class="row wrap">
             <div class="width-1of12 auto">
-                <button class="primary" @click="newTransaction()">
+                <button class="primary" @click="startNewTransaction()">
                     Start New Transaction<i class="on-right">add</i>
                 </button>
                 <button class="primary" @click="transactionList()">Back to Transaction List</button>
@@ -257,7 +217,9 @@
         product: '',
 
         productTypes: TfpData,
-        newItems: '',
+        txId: 2,
+        newItems: [],
+        newTransaction: {},
 
         // transaction arrays
         config: {
@@ -340,6 +302,23 @@
       }
     },
     methods: {
+      startNewTransaction: function () {
+        this.page = 'new-transactions'
+        let _txId = this.txId++
+        alert('_txId=' + _txId)
+        this.newTransaction = {
+          id: _txId,
+          txNumber: _txId,
+          txTime: Date.now(),
+          dayInfoId: 1,
+          user: 1,
+          salesperson: 1,
+          pp_or_pl: 0,
+          total: 0,
+          tax: 0
+        }
+      },
+
       selectProductType: function (productType) {
         this.productTypeSelected = productType
         this.productType = productType
@@ -349,10 +328,10 @@
       },
 
       selectProduct: function (item) {
-        this.product = item.name
+        this.product = item
         this.price = item.price
         this.selectedItemImage = './statics/' + item.img
-        this.itemMessage = this.product + ' selected'
+        this.itemMessage = this.product.desc + ' selected'
         this.$refs['chooseQty'].open()
       },
 
@@ -361,11 +340,10 @@
       },
 
       finish: function () {
-        if (Object.keys(this.newItems[0]).length === 0 && this.newItems[0].constructor === Object) this.newItems = []
         let _tax = this.pp ? 0 : this.taxRate
         this.newItems.push({
-          productType: this.productTypeSelected,
-          product: this.product,
+          productType: this.productTypeSelected.name,
+          product: this.product.desc,
           quantity: this.quantity,
           price: this.price,
           tax: _tax,
@@ -373,6 +351,7 @@
           runningTotal: this.runningTotal += (this.price + (this.price * _tax) * this.quantity)
         })
         this.calculateTransactionTotals()
+        this.saveTransaction()
       },
 
       calculateTransactionTotals: function () {
@@ -398,6 +377,34 @@
         this.runningTotal = _runningTotal
         this.transactionTax = _runningTotalTax
         this.transactionTotal = this.runningTotal + this.transactionTax
+      },
+
+      saveTransaction: function () {
+        let _tfpData = this.tfpData
+        this.newTransaction.pp_or_pl = this.pp
+        this.newTransaction.total = this.transactionTotal
+        this.newTransaction.tax = this.transactionTax
+        _tfpData.transactions[this.newTransaction.id] = this.newTransaction
+
+        let _newTx = this.newTransaction
+        let _id = 3
+        this.newItems.forEach(function (item) {
+          let _tmp = {
+            id: _id += 1,
+            transactionid: _newTx.txId,
+            productTypeId: item.productType,
+            productItemId: item.product,
+            qty: item.quantity,
+            price: item.price,
+            tax: item.tax
+          }
+          _tfpData.transactionItems[_tmp.id] = _tmp
+          alert(JSON.stringify(_tfpData.transactionItems))
+        })
+
+        this.tfpData = _tfpData
+        alert(JSON.stringify(this.tfpData.transactions))
+        alert(JSON.stringify(this.tfpData.transactionItems))
       },
 
       saveAndAddNew: function () {
