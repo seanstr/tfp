@@ -102,23 +102,25 @@
               <button :id="'btn'+item.id" class="tx-img-button" @click="selectProduct(item)" v-for="item in selectedProductTypeItems">
                 <img :src= "'./statics/'+item.img" :alt="item.desc" style="width: 128px" />
                 <br/>
-                <span class="label">{{item.desc}}</span> 
+                <span class="label auto wrap" style="font-size: 8pt;">{{item.desc}}</span> 
               </button>
             </div>
           </div>
         </div>
       </q-collapsible>
       <q-collapsible id="chooseQty" icon="shopping_cart" label="Choose Quantity" group="tx" ref="chooseQty">
-        <div>
+        <div class="">
           <div class="row wrap">
-            <div class="width-1of12 auto">
-              <div>
-                <label>Quantity:</label>
-                <q-numeric v-model="qty" :min="1" :max="99"></q-numeric>
+            <div class="width-1of1 auto">
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="width-1of5">Quantity:</label>
+                <div class="auto" style="background-color: #cacaca;">
+                  <q-numeric class="width-1of5" v-model="qty" :min="1" :max="99"></q-numeric>
+                </div>
               </div>
-              <div>
-                <label>Price:</label>
-                <input v-model="price" placeholder="Unit price">
+              <div class="row">
+                <label class="width-1of5">Price:</label>
+                <input class="auto" style="background-color: #cacaca;" v-model="price" placeholder="Unit price">
               </div>
             </div>
           </div>
@@ -230,12 +232,12 @@
 
         // transaction arrays
         config: {
-          rowHeight: '30px',  // [REQUIRED] Set the row height
+          rowHeight: '25px',  // [REQUIRED] Set the row height
           title: 'Transaction Items',
           noHeader: false,
           refresh: true,
           columnPicker: false,
-          leftStickyColumns: 1,
+          leftStickyColumns: 0,
           rightStickyColumns: 0,
           bodyStyle: {
             maxHeight: '500px'
