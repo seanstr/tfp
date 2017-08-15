@@ -23,6 +23,7 @@ export default new VueRouter({
   routes: [
     { path: '/', component: load('Tfs') }, // Default
     { path: '/tfs', component: load('Tfs') },
-    { path: '*', component: load('Error404') } // Not found
+    { path: '*', component: load('Error404') }, // Not found
+    { path: '/daystart', component: load('DayStart') } // Start the Day
   ]
 })

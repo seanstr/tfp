@@ -72,7 +72,7 @@
         </q-toolbar-title>
       </div>
       <div class="list no-border platform-delimiter">
-        <q-drawer-link icon="mail" :to="{path: '/', exact: true}">
+        <q-drawer-link icon="mail" to="/daystart">
           Start the day
         </q-drawer-link>
         <q-drawer-link icon="mail" :to="{path: '/', exact: true}">
