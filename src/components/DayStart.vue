@@ -31,23 +31,27 @@
               <div class="row" style="margin-bottom: 5px;">
                 <label class="width-1of5">Date:</label>
                 <div class="auto tx-switch">
-                  <q-inline-datetime v-model="dateOfShow" type="date" @input="dateOfShow" placeholder="2017-10-24T10:40:14.674Z"></q-inline-datetime>
+                  <q-datetime v-model="dateOfShow" type="date" @input="dateOfShow" placeholder="date of the market"></q-datetime>
                 </div>
               </div>
               <div class="row" style="margin-bottom: 5px;">
                 <label class="width-1of5">Location:</label>
-                <input class="auto" style="background-color: #cacaca;" v-model="location" placeholder="Total">
+                <input class="auto" style="background-color: #cacaca;" v-model="market" placeholder="select the market">
+              </div>
+              <div class="row" style="margin-bottom: 5px;">
+                <label class="width-1of5">Location:</label>
+                <q-select type="list" v-model="market" :options="markets"></q-select>
               </div>
               <div class="row" style="margin-bottom: 5px;">
                 <label class="row width-1of5">Team:</label>
-                <input class="auto" style="background-color: #cacaca;" v-model="teamName" placeholder="Tax">
+                <input class="auto" style="background-color: #cacaca;" v-model="teamName" placeholder="team name">
               </div>
             </div>
           </div>
           <div class="row wrap">
             <div class="width-1of1">
                 <button class="primary width-1of1" style="width: 250px; margin-bottom: 5px;" @click="startNewTransaction()">
-                  Save<i class="on-right">add</i>
+                  Save
                 </button>
                 <button class="primary width-1of1" style="width: 250px; margin-bottom: 5px;" @click="transactionList()">
                   Cancel

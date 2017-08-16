@@ -10,11 +10,12 @@
           <i>menu</i>
         </button>
     </div>
-    <div class="full-width" v-if="page == 'transactions'">
+    <div class="full-width">
       <button class="primary full-width" @click="startNewTransaction()">
         Start New Transaction<i class="on-right">add</i>
       </button>
-
+    </div>
+    <div class="full-width" v-if="page == 'transactions'">
       <section id="event">
         <div class="card">
           <div class="card-content">
@@ -63,6 +64,11 @@
           </div>
         </section>
       </section>
+
+      <button class="primary" @click="saveToLocalStorage()">
+        Save to Local Storage
+      </button>
+
     </div>
 
     <q-drawer ref="rightDrawer">
@@ -192,11 +198,13 @@
 
 <script>
   import TfpData from '../TfpData.json'
+  import { LocalStorage } from 'quasar'
 
   export default {
     data () {
       return {
-        tfpData: TfpData,
+        // tfpData: TfpData,
+        tfpData: LocalStorage.get.item('tfpData'),
 
         // settings
         taxRate: 0.05,
@@ -213,6 +221,11 @@
         price: 0,
         tax: 0,
         total: 0,
+
+        // day start values
+        dateOfShow: new Date(),
+        market: 'Millarville',
+        teamName: 'Team Sean',
 
         // transaction values
         runningTotal: 0,
@@ -337,6 +350,11 @@
           tax: 0
         }
         // alert(JSON.stringify(this.newTransaction, null, 4))
+      },
+
+      saveToLocalStorage: function () {
+        LocalStorage.set('key', 'value')
+        LocalStorage.set('tfpData', this.tfpData)
       },
 
       selectProductType: function (productType) {
