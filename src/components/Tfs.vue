@@ -197,8 +197,12 @@
 </template>
 
 <script>
-  import TfpData from '../TfpData.json'
   import { LocalStorage } from 'quasar'
+  import TfpData from '../TfpData.json'
+
+  alert("tfpdata loaded")
+  var aaa = TfpData
+  alert(aaa)
 
   export default {
     data () {
@@ -310,6 +314,26 @@
           }
         ]
       }
+    },
+    mounted: function() {
+      alert("In mounted")
+      alert(aaa)
+      alert(JSON.stringify(aaa))
+
+      alert(this.TfpData)
+
+      alert(typeof this)
+
+      if( typeof tpfData !== 'undefined' ) alert("tfpData not defined")
+
+
+      if (tpfData == null) 
+        alert("tfpData null") 
+      else 
+        alert("tfpData not null")
+
+      if (tpfData) alert("tfpData OK"); else alert("tfpData not OK")
+      tfpData ? alert(tfpData) : alert("tfpData is null")
     },
     computed: {
       selectedProductTypeItems () {
