@@ -17,21 +17,11 @@
         </div>
         <div class="card-content card-force-top-padding">
           <div class="row gutter wrap justify-stretch content-center">
-            <q-data-table class="width-1of1 auto" style="border: none;" :data="newItems" :config="config" :columns="columns">
-              <template slot="selection" scope="selection">
-                <button class="primary clear" @click="changeMessage(selection)">
-                  <i>edit</i>
-                </button>
-                <button class="primary clear" @click="deleteRow(selection)">
-                  <i>delete</i>
-                </button>
-              </template>
-            </q-data-table>
             <div class="width-1of1 auto">
               <div class="row" style="margin-bottom: 5px;">
                 <label class="width-1of5">Date:</label>
                 <div class="auto tx-switch">
-                  <q-datetime v-model="dateOfShow" type="date" @input="dateOfShow" placeholder="date of the market"></q-datetime>
+                  <q-datetime v-model="dateOfShow" type="date" @input="tfpData.markets.dateOfShow" placeholder="date of the market"></q-datetime>
                 </div>
               </div>
               <div class="row" style="margin-bottom: 5px;">
@@ -40,7 +30,7 @@
               </div>
               <div class="row" style="margin-bottom: 5px;">
                 <label class="width-1of5">Location:</label>
-                <q-select type="list" v-model="market" :options="markets"></q-select>
+                <q-select type="list" v-model="tfpData.markets" :options="tfpData.markets"></q-select>
               </div>
               <div class="row" style="margin-bottom: 5px;">
                 <label class="row width-1of5">Team:</label>

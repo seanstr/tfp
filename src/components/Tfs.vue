@@ -20,7 +20,10 @@
         <div class="card">
           <div class="card-content">
             <div class="row">
-              <span class="width-1of4">June 13 2017</span><span class="auto">Millarville Farmers Market</span><span class="auto">Team Sean</span><span id="tx-total" class="auto">Total: 595</span>
+              <span class="width-1of4">{{currentShow.dateOfShow}}</span>
+              <span class="auto">{{currentShow.market}}</span>
+              <span class="auto">{{currentShow.teamName}}</span>
+              <span id="tx-total" class="auto">Total: {{currentShow.TotalSales}}</span>
             </div>
           </div>
         </div>
@@ -199,16 +202,24 @@
 <script>
   import { LocalStorage } from 'quasar'
   import TfpData from '../TfpData.json'
+  import DayStart from './DayStart.vue'
 
-  alert("tfpdata loaded")
-  var aaa = TfpData
-  alert(aaa)
+  // if (LocalStorage.isEmpty()) {
+  alert('loading tfpData from json')
+  LocalStorage.set('tfpData', TfpData)
+  // }
+
+  let tfpData = LocalStorage.get.item('tfpData')
+  alert('tfpdata loaded')
+  alert(JSON.stringify(tfpData))
 
   export default {
+    name: 'app',
+    components: {DayStart},
     data () {
       return {
-        // tfpData: TfpData,
-        tfpData: LocalStorage.get.item('tfpData'),
+        tfpData: tfpData,
+        // tfpData: LocalStorage.get.item('tfpData'),
 
         // settings
         taxRate: 0.05,
@@ -246,6 +257,8 @@
         txId: 1,
         newItems: [],
         newTransaction: {},
+
+        currentShow: {},
 
         // transaction arrays
         config: {
@@ -315,26 +328,25 @@
         ]
       }
     },
-    mounted: function() {
-      alert("In mounted")
-      alert(aaa)
-      alert(JSON.stringify(aaa))
 
-      alert(this.TfpData)
+    mounted: function () {
+      alert('In mounted')
 
-      alert(typeof this)
+      alert(JSON.stringify(this.TfpData))
 
-      if( typeof tpfData !== 'undefined' ) alert("tfpData not defined")
+      if (typeof tpfData !== 'undefined') alert('tfpData defined')
 
+      if (this.tpfData == null) {
+        alert('tfpData null')
+      }
+      else {
+        alert('tfpData not null')
+      }
 
-      if (tpfData == null) 
-        alert("tfpData null") 
-      else 
-        alert("tfpData not null")
-
-      if (tpfData) alert("tfpData OK"); else alert("tfpData not OK")
-      tfpData ? alert(tfpData) : alert("tfpData is null")
+      if (this.tpfData) alert('tfpData OK'); else alert('tfpData not OK')
+      this.tfpData ? alert(this.tfpData) : alert('tfpData is null')
     },
+
     computed: {
       selectedProductTypeItems () {
         if (this.productTypeSelected === '') return null
